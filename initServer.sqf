@@ -1,1 +1,1 @@
-systemChat "asdasd";
+systemChat "asd";
