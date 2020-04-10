@@ -178,17 +178,17 @@ while {deleteManagerPublic} do {
 					};
 					deleteVehicle _x;
 				};
-			} count (allMissionObjects "WeaponHolderSimulated_Scripted");
+			} count (allMissionObjects "GroundWeaponHolder_Scripted");
 		};
 
-		if ((count (allMissionObjects "WeaponHolderSimulated_Scripted")) > _weaponHolderLimit) then {
+		if ((count (allMissionObjects "GroundWeaponHolder_Scripted")) > _weaponHolderLimit) then {
 			systemChat "Weapon Holder above limit";
-			while {(((count (allMissionObjects "WeaponHolderSimulated_Scripted")) - _weaponHolderLimit) > 0)} do {
-				if (!isNil {((allMissionObjects "WeaponHolderSimulated_Scripted") select 0) getVariable "buildingName"}) then {
-					_h = ((allMissionObjects "WeaponHolderSimulated_Scripted") select 0) getVariable "buildingName";
+			while {(((count (allMissionObjects "GroundWeaponHolder_Scripted")) - _weaponHolderLimit) > 0)} do {
+				if (!isNil {((allMissionObjects "GroundWeaponHolder_Scripted") select 0) getVariable "buildingName"}) then {
+					_h = ((allMissionObjects "GroundWeaponHolder_Scripted") select 0) getVariable "buildingName";
 					_h setVariable ["lootObjectCount", (_h getVariable "lootObjectCount") -1];
 				};
-				deleteVehicle ((allMissionObjects "WeaponHolderSimulated_Scripted") select 0);
+				deleteVehicle ((allMissionObjects "GroundWeaponHolder_Scripted") select 0);
 				systemChat "Weapon Holder deleted";
 				sleep 0.5;
 			};

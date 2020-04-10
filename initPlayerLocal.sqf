@@ -1,3 +1,7 @@
+if(!hasInterface) exitWith {}; // If headless then exit
+
+[] execVM "scripts\startLootSpawn.sqf";
+
 player addEventHandler ["Take", {
 	if (!isNil {(_this select 1) getVariable "buildingName"} && count ((getItemCargo (_this select 1)) select 0) == 0 && isnull (findDisplay 602)) then {
 		_h = (_this select 1) getVariable "buildingName";

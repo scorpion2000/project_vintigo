@@ -11,10 +11,10 @@ if (isNil {_building getVariable "lootObjectCount"}) then {
 if ((_building getVariable "lootObjectCount") <= (count (_allBuildingPos) / 4)) then {
 	_r = (_building getVariable "lootObjectCount")+1;
 	_building setVariable ["lootObjectCount", _r];
-	_lootObject = createVehicle ["WeaponHolderSimulated_Scripted", [(_buildingPOS select 0),(_buildingPOS select 1),(_buildingPOS select 2)+0.1], [], 0, "can_Collide"];
+	_lootObject = createVehicle ["GroundWeaponHolder_Scripted", [(_buildingPOS select 0),(_buildingPOS select 1),(_buildingPOS select 2)+0.1], [], 0, "can_Collide"];
 	if ((getPos _lootObject) select 2 < 0) then {
 		systemChat "Loot object spawned below ground level";
-		_lootObject setPos ((getPos _lootObject) vectorAdd [0, 0, abs ((getPos _lootObject) select 2) +1]);
+		_lootObject setPos ((getPos _lootObject) vectorAdd [0, 0, abs ((getPos _lootObject) select 2) +0.05]);
 		systemChat str getPos _lootObject;
 	};
 	_lootObject setDir (random 360);
@@ -74,7 +74,7 @@ if ((_building getVariable "lootObjectCount") <= (count (_allBuildingPos) / 4)) 
 			};
 	};
 
-	if (count (nearestObjects [_lootObject, ["WeaponHolderSimulated_Scripted"], 1]) > 1) then {
+	if (count (nearestObjects [_lootObject, ["GroundWeaponHolder_Scripted"], 1]) > 1) then {
 		_h = _lootObject getVariable "buildingName";
 		_h setVariable ["lootObjectCount", (_h getVariable "lootObjectCount") -1];
 
