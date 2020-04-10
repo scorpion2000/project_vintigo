@@ -1,1 +1,7 @@
-systemChat "asd";
+class CfgFunctions 
+{
+	createShortcuts = 1;
+	#include "functions\cfgPrvFunctions.hpp"
+	//#include "scripts\funcs.hpp"
+	//#include "HG\Functions\HG_Functions.h"
+};
