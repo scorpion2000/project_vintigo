@@ -17,7 +17,7 @@ systemChat "running";
 {
 		_searchingForPos = true;
 		_allBuildingPos = [_x] call BIS_fnc_buildingPositions;
-		if (floor (random 100)+1 >= 90 && count _allBuildingPos != 0) then { // 10% chance to spawn
+		if (floor (random 100)+1 >= 80 && count _allBuildingPos != 0) then { // 10% chance to spawn
 			[_x] remoteExec ["prv_fnc_spawnLootObjects", 2, false];
 		};
 } forEach _buildingList;
