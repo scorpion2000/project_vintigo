@@ -48,10 +48,10 @@ if ((_building getVariable "lootObjectCount") <= (count (_allBuildingPos) / 4)) 
 		_rnd = floor (random 100);
 		switch true do {
 			case (_rnd < 30) : { _lootObject setVariable ["lootType", "empty"] };
-			case (_rnd >= 30 && _rnd < 55) : { _lootObject setVariable ["lootType", "food"] };
-			case (_rnd >= 55 && _rnd < 75) : { _lootObject setVariable ["lootType", "medical"] };
-			case (_rnd >= 75 && _rnd < 90) : { _lootObject setVariable ["lootType", "weapons_pistol"] };
-			case (_rnd >= 90) : { _lootObject setVariable ["lootType", "weapons_rifle"] };
+			case (_rnd >= 30 && _rnd < 65) : { _lootObject setVariable ["lootType", "food"] };
+			case (_rnd >= 65 && _rnd < 88) : { _lootObject setVariable ["lootType", "medical"] };
+			case (_rnd >= 88 && _rnd < 98) : { _lootObject setVariable ["lootType", "weapons_pistol"] };
+			case (_rnd >= 98) : { _lootObject setVariable ["lootType", "weapons_rifle"] };
 			// case  : { _lootObject setVariable ["lootType", "weapons_launcher"] };
 			
 			default { _lootObject setVariable ["lootType", "empty"] };

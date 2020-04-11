@@ -237,8 +237,8 @@ if (_rndMisc < 15) then {
 
 _rndHeadgear = floor (random 100);
 if (_rndHeadgear < 25) then {
-	_rnd = round (random 10);
-	if (_rnd < 9) then {
+	_rnd = round (random 100);
+	if (_rnd < 95) then {
 		_selected = selectRandom commonHeadgears;
 		_lootObject addItemCargoGlobal [_selected, 1];
 	} else {
@@ -249,8 +249,8 @@ if (_rndHeadgear < 25) then {
 
 _rndUniform = floor (random 100);
 if (_rndUniform < 20) then {
-	_rnd = round (random 10);
-	if (_rnd < 8) then {
+	_rnd = round (random 100);
+	if (_rnd < 85) then {
 		_selected = selectRandom commonUniforms;
 		_lootObject addItemCargoGlobal [_selected, 1];
 	} else {
@@ -261,8 +261,8 @@ if (_rndUniform < 20) then {
 
 _rndVest = floor (random 100);
 if (_rndVest < 15) then {
-	_rnd = round (random 10);
-	if (_rnd < 7) then {
+	_rnd = round (random 100);
+	if (_rnd < 85) then {
 		_selected = selectRandom commonVests;
 		_lootObject addItemCargoGlobal [_selected, 1];
 	} else {
@@ -273,8 +273,8 @@ if (_rndVest < 15) then {
 
 _rndBackpack = floor (random 100);
 if (_rndBackpack < 15) then {
-	_rnd = round (random 10);
-	if (_rnd < 7) then {
+	_rnd = round (random 100);
+	if (_rnd < 85) then {
 		_selected = selectRandom commonBackpack;
 		_lootObject addBackpackCargoGlobal [_selected, 1];
 	} else {
@@ -284,9 +284,9 @@ if (_rndBackpack < 15) then {
 };
 
 _rndAttachments = floor (random 100);
-if (_rndAttachments < 8) then {
-	_rnd = round (random 10);
-	if (_rnd < 9) then {
+if (_rndAttachments < 5) then {
+	_rnd = round (random 100);
+	if (_rnd < 90) then {
 		_selected = selectRandom commonWeaponAttachments;
 		_lootObject addItemCargoGlobal [_selected, 1];
 	} else {
