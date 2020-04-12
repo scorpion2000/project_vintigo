@@ -8,6 +8,7 @@ class VintigoFunctions {
 		class gatherBuildings {};
 		class spawnLootObjects {};
 		class spawnLootIntoContainer {};
+		class vehicleSpawner {};
 		/*class spawnCivilianVehicles {};
 		class spawnRoamingAI {}
 		class spawnRoamingAIVehicles {}
