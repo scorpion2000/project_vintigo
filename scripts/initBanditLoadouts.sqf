@@ -1,0 +1,26 @@
+b_loadout_1 = getUnitLoadout bandit_l_1;
+b_loadout_2 = getUnitLoadout bandit_l_2;
+b_loadout_3 = getUnitLoadout bandit_l_3;
+b_loadout_4 = getUnitLoadout bandit_l_4;
+b_loadout_5 = getUnitLoadout bandit_l_5;
+b_loadout_6 = getUnitLoadout bandit_l_6;
+b_loadout_7 = getUnitLoadout bandit_l_7;
+b_loadout_8 = getUnitLoadout bandit_l_8;
+b_loadout_9 = getUnitLoadout bandit_l_9;
+b_loadout_10 = getUnitLoadout bandit_l_10;
+b_loadout_11 = getUnitLoadout bandit_l_11;
+b_loadout_12 = getUnitLoadout bandit_l_12;
+deleteVehicle bandit_l_1;
+deleteVehicle bandit_l_2;
+deleteVehicle bandit_l_3;
+deleteVehicle bandit_l_4;
+deleteVehicle bandit_l_5;
+deleteVehicle bandit_l_6;
+deleteVehicle bandit_l_7;
+deleteVehicle bandit_l_8;
+deleteVehicle bandit_l_9;
+deleteVehicle bandit_l_10;
+deleteVehicle bandit_l_11;
+deleteVehicle bandit_l_12;
+
+b_loadoutArray = [b_loadout_1, b_loadout_2, b_loadout_3, b_loadout_4, b_loadout_5, b_loadout_6, b_loadout_7, b_loadout_8, b_loadout_9, b_loadout_10, b_loadout_11, b_loadout_12];

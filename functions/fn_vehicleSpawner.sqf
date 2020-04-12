@@ -1,18 +1,3 @@
-_spawnLocations = nearestLocations [
-	selectRandom allPlayers, 
-	[
-		"NameVillage", 
-		"Name", 
-		"NameMarine", 
-		"NameCity", 
-		"NameCityCapital", 
-		"FlatArea", 
-		"FlatAreaCity", 
-		"FlatAreaCitySmall"
-	], 
-	25000
-];
-
 _commonCivVehicles = [
 	"C_Hatchback_01_F",
 	"C_Hatchback_01_sport_F",
@@ -76,7 +61,7 @@ _rareCivVehicles = [
 ];
 
 for "_i" from 1 to 12 do {
-	_spawnLocRnd = selectRandom _spawnLocations;
+	_spawnLocRnd = selectRandom mapLocations;
 
 	spawnLoc = getPos _spawnLocRnd vectorAdd [random [-500, 0, 500], random [-500, 0, 500], 0];
 	_nearestRoad = [spawnLoc, 200] call BIS_fnc_nearestRoad;
@@ -87,19 +72,19 @@ for "_i" from 1 to 12 do {
 		switch (true) do {
 			case (_rnd < 60) : {
 				_vehicle = selectRandom _commonCivVehicles;
-				_veh = createVehicle [_vehicle, _nearestRoad, [], 0, "NONE"];
+				_veh = createVehicle [_vehicle, getPos _nearestRoad vectorAdd [random [-5, 0, 5], random [-5, 0, 5], 0], [], 0, "NONE"];
 				_veh setDir (random 360);
 			};
 
 			case (_rnd >= 60 && _rnd < 85) : {
 				_vehicle = selectRandom _bikes;
-				_veh = createVehicle [_vehicle, _nearestRoad, [], 0, "NONE"];
+				_veh = createVehicle [_vehicle, getPos _nearestRoad vectorAdd [random [-5, 0, 5], random [-5, 0, 5], 0], [], 0, "NONE"];
 				_veh setDir (random 360);
 			};
 
 			case (_rnd >= 85 && _rnd < 100) : {
 				_vehicle = selectRandom _rareCivVehicles;
-				_veh = createVehicle [_vehicle, _nearestRoad, [], 0, "NONE"];
+				_veh = createVehicle [_vehicle, getPos _nearestRoad vectorAdd [random [-5, 0, 5], random [-5, 0, 5], 0], [], 0, "NONE"];
 				_veh setDir (random 360);
 			};
 		}
