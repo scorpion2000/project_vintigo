@@ -60,7 +60,7 @@ _rareCivVehicles = [
 	"ivory_gti"
 ];
 
-for "_i" from 1 to 12 do {
+for "_i" from 1 to 24 do {
 	_spawnLocRnd = selectRandom mapLocations;
 
 	spawnLoc = getPos _spawnLocRnd vectorAdd [random [-500, 0, 500], random [-500, 0, 500], 0];
