@@ -24,4 +24,8 @@ mapLocations = nearestLocations [
 [] execVM "scripts\miscItemList.sqf";
 [] execVM "scripts\equipItemList.sqf";
 
+[] execVM "scripts\initBanditLoadouts.sqf";
+
+[] execVM "scripts\startRoamingAISpawn.sqf";
+
 [] remoteExec ["prv_fnc_vehicleSpawner", 2, false];

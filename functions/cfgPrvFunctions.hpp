@@ -9,8 +9,8 @@ class VintigoFunctions {
 		class spawnLootObjects {};
 		class spawnLootIntoContainer {};
 		class vehicleSpawner {};
-		/*class spawnCivilianVehicles {};
 		class spawnRoamingAI {}
+		/*class spawnCivilianVehicles {};
 		class spawnRoamingAIVehicles {}
 		class saveInventoryToDatabase {}
 		class playerPersistance {}
