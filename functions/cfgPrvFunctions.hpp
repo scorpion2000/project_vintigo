@@ -9,15 +9,16 @@ class VintigoFunctions {
 		class spawnLootObjects {};
 		class spawnLootIntoContainer {};
 		class vehicleSpawner {};
-		class spawnRoamingAI {}
-		/*class spawnCivilianVehicles {};
-		class spawnRoamingAIVehicles {}
-		class saveInventoryToDatabase {}
-		class playerPersistance {}
-		class createUserEntry {}
-		class loadPersistance {}
-		class spawnEvent {}
-		class buyAmmunition {}*/
+		class spawnRoamingAI {};
+		class spawnRoamingAIVehicles {};
+		/*
+		class saveInventoryToDatabase {};
+		class playerPersistance {};
+		class createUserEntry {};
+		class loadPersistance {};
+		class spawnEvent {};
+		class buyAmmunition {};
+		*/
 	};
 
 	class PRVLog
