@@ -11,11 +11,11 @@ class VintigoFunctions {
 		class vehicleSpawner {};
 		class spawnRoamingAI {};
 		class spawnRoamingAIVehicles {};
-		/*
 		class saveInventoryToDatabase {};
 		class playerPersistance {};
 		class createUserEntry {};
 		class loadPersistance {};
+		/*
 		class spawnEvent {};
 		class buyAmmunition {};
 		*/

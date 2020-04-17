@@ -19,3 +19,17 @@ player addEventHandler ["InventoryClosed", {
 		deleteVehicle (_this select 1);
 	};
 }];
+
+// Persistance stuff
+sleep 1;
+[player] call prv_fnc_loadPersistance;
+[] execVM "scripts\persistentSave.sqf";
+player addEventHandler [
+	"Killed", 
+	{
+		[(this select 0)] remoteExec ["prv_fnc_playerPersistance", 2, false];
+		[player] remoteExec ["prv_fnc_saveInventoryToDatabase", 2, false];
+	}
+];
+
+[] execVM "HG\Setup\fn_clientInitialization.sqf";

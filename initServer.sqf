@@ -29,3 +29,5 @@ mapLocations = nearestLocations [
 [] execVM "scripts\startRoamingAISpawn.sqf";
 
 [] remoteExec ["prv_fnc_vehicleSpawner", 2, false];
+
+[] execVM "HG\Setup\fn_serverInitialization.sqf";

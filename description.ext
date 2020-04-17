@@ -3,5 +3,22 @@ class CfgFunctions
 	createShortcuts = 1;
 	#include "functions\cfgPrvFunctions.hpp"
 	//#include "scripts\funcs.hpp"
-	//#include "HG\Functions\HG_Functions.h"
+	#include "HG\Functions\HG_Functions.h"
+};
+
+#include "HG\UI\HG_DialogsMaster.h"
+
+class RscTitles
+{
+    #include "HG\UI\Dialogs\HG_HUD.h"
+};
+
+class CfgClient
+{
+    #include "HG\Config\HG_Config.h"
+};
+
+class CfgSounds
+{
+    #include "HG\Sounds\HG_Sounds.h"
 };

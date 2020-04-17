@@ -7,7 +7,7 @@ while {roamingAICount <= 32} do {
 	while {_playerCheck} do {
 		_randomSpawnLoc = selectRandom mapLocations;
 		{
-			systemChat str (getPos _x distance _randomSpawnLoc);
+			//systemChat str (getPos _x distance _randomSpawnLoc);
 			if (getPos _x distance _randomSpawnLoc < 200) then {
 				_playerCheck = true;
 			} else {
