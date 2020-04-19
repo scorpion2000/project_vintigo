@@ -7,11 +7,12 @@ if !(isNil {_playerDatabaseID}) then {
 	_playerPos = getPosASL _player;
 	_isAlive = alive _player;
 
-	private _query = format ["SELECT pers_location, pers_hunger, pers_thirst, pers_isAlive FROM user_persistance WHERE pers_u_id=%1", _playerDatabaseID];
+	private _query = format ["SELECT pers_location, pers_hunger, pers_thirst, pers_dir, pers_isAlive FROM user_persistance WHERE pers_u_id=%1", _playerDatabaseID];
 	_persistanceResult = [2,_query,false] call HG_fnc_asyncCall;
 	
-	if ((_persistanceResult#3) == 1) then {
+	if ((_persistanceResult#4) == 1) then {
 		_player setPosASL _persistanceResult#0;
+		_player setDir _persistanceResult#3;
 		_playerID = owner _player;
 		systemChat str _playerID;
 		
