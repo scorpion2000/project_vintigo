@@ -16,9 +16,10 @@ while {roamingAIVehicleCount <= 5} do {
 	};
 	
 	_vehicle = "O_G_Offroad_01_armed_F" createVehicle getPos ([getPos _randomSpawnLoc vectorAdd [random [-500, 0, 500], random [-500, 0, 500], 0], 200] call BIS_fnc_nearestRoad);
-	_vehicle addEventHandler ["Killed", {roamingAIVehicleCount = roamingAIVehicleCount -1}];
+	// _vehicle addEventHandler ["Killed", {roamingAIVehicleCount = roamingAIVehicleCount -1}];
 	
 	_roamingAI_1 = _group createUnit ["I_Survivor_F", (getPos _vehicle), [], 200, "NONE"];
+	_roamingAI_1 addEventHandler ["Killed", {roamingAIVehicleCount = roamingAIVehicleCount -1}];
 	_roamingAI_1 setUnitLoadout (selectRandom b_loadoutArray);
 	
 	_roamingAI_2 = _group createUnit ["I_Survivor_F", (getPos _vehicle), [], 200, "NONE"];
