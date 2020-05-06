@@ -175,6 +175,10 @@ while {deleteManagerPublic} do {
 					if (!isNil {_x getVariable "buildingName"}) then {
 						_h = _x getVariable "buildingName";
 						_h setVariable ["lootObjectCount", (_h getVariable "lootObjectCount") -1];
+
+						if ((_h getVariable "lootObjectCount") <= 0) then {
+							_h setVariable ["lootObjectCount", nil];
+						};
 					};
 					deleteVehicle _x;
 				};
@@ -187,6 +191,10 @@ while {deleteManagerPublic} do {
 				if (!isNil {((allMissionObjects "GroundWeaponHolder_Scripted") select 0) getVariable "buildingName"}) then {
 					_h = ((allMissionObjects "GroundWeaponHolder_Scripted") select 0) getVariable "buildingName";
 					_h setVariable ["lootObjectCount", (_h getVariable "lootObjectCount") -1];
+
+					if ((_h getVariable "lootObjectCount") <= 0) then {
+						_h setVariable ["lootObjectCount", nil];
+					};
 				};
 				deleteVehicle ((allMissionObjects "GroundWeaponHolder_Scripted") select 0);
 				systemChat "Weapon Holder deleted";

@@ -7,6 +7,10 @@ player addEventHandler ["Take", {
 		_h = (_this select 1) getVariable "buildingName";
 		_h setVariable ["lootObjectCount", (_h getVariable "lootObjectCount") -1];
 
+		if ((_h getVariable "lootObjectCount") <= 0) then {
+			_h setVariable ["lootObjectCount", nil];
+		};
+
 		deleteVehicle (_this select 1);
 	};
 }];
@@ -15,6 +19,10 @@ player addEventHandler ["InventoryClosed", {
 	if (!isNil {(_this select 1) getVariable "buildingName"} && count ((getItemCargo (_this select 1)) select 0) == 0) then {
 		_h = (_this select 1) getVariable "buildingName";
 		_h setVariable ["lootObjectCount", (_h getVariable "lootObjectCount") -1];
+
+		if ((_h getVariable "lootObjectCount") <= 0) then {
+			_h setVariable ["lootObjectCount", nil];
+		};
 
 		deleteVehicle (_this select 1);
 	};
