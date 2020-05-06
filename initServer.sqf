@@ -16,6 +16,21 @@ mapLocations = nearestLocations [
 	25000
 ];
 
+ELocations = nearestLocations [
+	selectRandom allPlayers, 
+	[
+		"FlatArea",
+		"FlatAreaCity", 
+		"FlatAreaCitySmall",
+		"Hill",
+		"VegetationBroadleaf",
+		"VegetationFir",
+		"VegetationPalm",
+		"VegetationVineyard"
+	], 
+	25000
+];
+
 [] execVM "scripts\clean.sqf";
 
 [] execVM "scripts\handgunWeaponList.sqf";
@@ -27,6 +42,8 @@ mapLocations = nearestLocations [
 [] execVM "scripts\initBanditLoadouts.sqf";
 
 [] execVM "scripts\startRoamingAISpawn.sqf";
+
+[] execVM "scripts\startWrecksEvent.sqf";
 
 [] remoteExec ["prv_fnc_vehicleSpawner", 2, false];
 

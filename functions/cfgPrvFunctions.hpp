@@ -15,6 +15,7 @@ class VintigoFunctions {
 		class playerPersistance {};
 		class createUserEntry {};
 		class loadPersistance {};
+		class spawnEvent {};
 		/*
 		class spawnEvent {};
 		class buyAmmunition {};

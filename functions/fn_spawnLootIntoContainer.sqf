@@ -172,7 +172,7 @@ switch (_lootObject getVariable "lType") do {
 /*		Spawn a couple matching mags and a couple random ones			*/
 /*		NOTE: *_playerUnit* is the closest player at object spawn		*/
 _rndSpawnMatchingMag = floor (random 100);
-if (_rndSpawnMatchingMag < 5) then {
+if (_rndSpawnMatchingMag < 5 && !isNull {_playerUnit}) then {
 	//Matching Mags
 	_rndMatchingMagCount = round (random 2);
 	_playerPrimaryWeapon = primaryWeapon _playerUnit;
