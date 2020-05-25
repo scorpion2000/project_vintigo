@@ -27,7 +27,7 @@ if ((_building getVariable "lCount") <= (count (_allBuildingPos) / 4)) then {
 	
 	_lootIsOutside = true;
 	// City locations
-	if (count nearestLocations [_lootObject, ["NameCity", "NameCityCapital", "NameMarine"], 300] != 0) then {
+	if (count nearestLocations [_lootObject, ["NameCity", "NameCityCapital", "NameMarine", "fakeTown"], 300] != 0) then {
 		_rnd = floor (random 100);
 		switch true do {
 			case (_rnd < 30) : { _lootObject setVariable ["lType", "empty"] };
@@ -40,10 +40,10 @@ if ((_building getVariable "lCount") <= (count (_allBuildingPos) / 4)) then {
 			default { _lootObject setVariable ["lType", "empty"] };
 		};
 		_lootIsOutside = false;
-		systemChat "loot spawned in a city (NameCity, NameCityCapital, NameMarine)";
+		//systemChat "loot spawned in a city (NameCity, NameCityCapital, NameMarine)";
 	};
 
-	// City locations
+	// Village locations
 	if (count nearestLocations [_lootObject, ["NameVillage", "Name", "NameMarine"], 300] != 0) then {
 		_rnd = floor (random 100);
 		switch true do {
@@ -57,7 +57,24 @@ if ((_building getVariable "lCount") <= (count (_allBuildingPos) / 4)) then {
 			default { _lootObject setVariable ["lType", "empty"] };
 		};
 		_lootIsOutside = false;
-		systemChat "loot spawned in a village (NameVillage, Name, NameMarine)";
+		//systemChat "loot spawned in a village (NameVillage, Name, NameMarine)";
+	};
+
+	// Military locations
+	if (count nearestLocations [_lootObject, ["NameLocal", "Strategic", "StrongpointArea"], 300] != 0) then {
+		_rnd = floor (random 100);
+		switch true do {
+			case (_rnd < 33) : { _lootObject setVariable ["lType", "empty"] };
+			case (_rnd >= 33 && _rnd < 43) : { _lootObject setVariable ["lType", "food"] };
+			case (_rnd >= 43 && _rnd < 63) : { _lootObject setVariable ["lType", "medical"] };
+			case (_rnd >= 63 && _rnd < 83) : { _lootObject setVariable ["lType", "weapons_pistol"] };
+			case (_rnd >= 83 && _rnd < 98) : { _lootObject setVariable ["lType", "weapons_rifle"] };
+			case (_rnd >= 98) : { _lootObject setVariable ["lType", "weapons_launcher"] };
+			
+			default { _lootObject setVariable ["lType", "empty"] };
+		};
+		_lootIsOutside = false;
+		//systemChat "loot spawned in a village (NameVillage, Name, NameMarine)";
 	};
 	
 	if (_lootIsOutside) then {
