@@ -153,7 +153,7 @@ while {deleteManagerPublic} do {
 	//================================= WEAPON HOLDERS
 	if (!(_weaponHolderLimit isEqualTo -1)) then {
 		if ((count (allMissionObjects "WeaponHolder")) > _weaponHolderLimit) then {
-			systemChat "Weapon Holder above limit";
+			//systemChat "Weapon Holder above limit";
 			while {(((count (allMissionObjects "WeaponHolder")) - _weaponHolderLimit) > 0)} do {
 				deleteVehicle ((allMissionObjects "WeaponHolder") select 0);
 				sleep 0.5;
@@ -171,7 +171,7 @@ while {deleteManagerPublic} do {
 		if (_weaponHolderDistCheck) then {
 			{
 				if ([_x,_weaponHolderDist,(playableUnits + switchableUnits)] call _isHidden) then {
-					systemChat "Weapon Holder too far away from closest player";
+					//systemChat "Weapon Holder too far away from closest player";
 					if (!isNil {_x getVariable "buildingName"}) then {
 						_h = _x getVariable "buildingName";
 						_h setVariable ["lootObjectCount", (_h getVariable "lootObjectCount") -1];
@@ -186,7 +186,7 @@ while {deleteManagerPublic} do {
 		};
 
 		if ((count (allMissionObjects "GroundWeaponHolder_Scripted")) > _weaponHolderLimit) then {
-			systemChat "Weapon Holder above limit";
+			//systemChat "Weapon Holder above limit";
 			while {(((count (allMissionObjects "GroundWeaponHolder_Scripted")) - _weaponHolderLimit) > 0)} do {
 				if (!isNil {((allMissionObjects "GroundWeaponHolder_Scripted") select 0) getVariable "buildingName"}) then {
 					_h = ((allMissionObjects "GroundWeaponHolder_Scripted") select 0) getVariable "buildingName";
@@ -197,7 +197,7 @@ while {deleteManagerPublic} do {
 					};
 				};
 				deleteVehicle ((allMissionObjects "GroundWeaponHolder_Scripted") select 0);
-				systemChat "Weapon Holder deleted";
+				//systemChat "Weapon Holder deleted";
 				sleep 0.5;
 			};
 		};
