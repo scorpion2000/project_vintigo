@@ -99,8 +99,8 @@ switch (_lootObject getVariable "lType") do {
 				_mag = selectRandom _supportedMags;
 				_lootObject addMagazineCargoGlobal [_mag, (round (random 5))+1];
 				_lootObject setVariable ["spawnedStuff", _selected];
-				//_lootObject addAction ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}, [], 1.5, true, false, "", "true", 5, false, "", ""];
-				//[_lootObject, ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}], [], 1.5, true, false, "", "true", 5, false, "", ""] remoteExec ["addAction", 0, false];
+				_lootObject addAction ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}, [], 1.5, true, false, "", "true", 5, false, "", ""];
+				[_lootObject, ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}], [], 1.5, true, false, "", "true", 5, false, "", ""] remoteExec ["addAction", 0, false];
 			};
 			case (_rnd >= 50 && _rnd < 75) : {
 				_selected = selectRandom uncommonPrimaryWeaponList;
@@ -109,8 +109,8 @@ switch (_lootObject getVariable "lType") do {
 				_mag = selectRandom _supportedMags;
 				_lootObject addMagazineCargoGlobal [_mag, (round (random 3))+1];
 				_lootObject setVariable ["spawnedStuff", _selected];
-				//_lootObject addAction ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}, [], 1.5, true, false, "", "true", 5, false, "", ""];
-				//[_lootObject, ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}], [], 1.5, true, false, "", "true", 5, false, "", ""] remoteExec ["addAction", 0, false];
+				_lootObject addAction ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}, [], 1.5, true, false, "", "true", 5, false, "", ""];
+				[_lootObject, ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}], [], 1.5, true, false, "", "true", 5, false, "", ""] remoteExec ["addAction", 0, false];
 			};
 			case (_rnd >= 90 && _rnd < 98) : {
 				_selected = selectRandom rarePrimaryWeaponList;
@@ -119,8 +119,8 @@ switch (_lootObject getVariable "lType") do {
 				_mag = selectRandom _supportedMags;
 				_lootObject addMagazineCargoGlobal [_mag, (round (random 3))+1];
 				_lootObject setVariable ["spawnedStuff", _selected];
-				//_lootObject addAction ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}, [], 1.5, true, false, "", "true", 5, false, "", ""];
-				//[_lootObject, ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}], [], 1.5, true, false, "", "true", 5, false, "", ""] remoteExec ["addAction", 0, false];
+				_lootObject addAction ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}, [], 1.5, true, false, "", "true", 5, false, "", ""];
+				[_lootObject, ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}], [], 1.5, true, false, "", "true", 5, false, "", ""] remoteExec ["addAction", 0, false];
 			};
 			case (_rnd >= 98) : {
 				_selected = selectRandom legendaryPrimaryWeaponList;
@@ -129,8 +129,8 @@ switch (_lootObject getVariable "lType") do {
 				_mag = selectRandom _supportedMags;
 				_lootObject addMagazineCargoGlobal [_mag, (round (random 3))+1];
 				_lootObject setVariable ["spawnedStuff", _selected];
-				//_lootObject addAction ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}, [], 1.5, true, false, "", "true", 5, false, "", ""];
-				//[_lootObject, ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}], [], 1.5, true, false, "", "true", 5, false, "", ""] remoteExec ["addAction", 0, false];
+				_lootObject addAction ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}, [], 1.5, true, false, "", "true", 5, false, "", ""];
+				[_lootObject, ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}], [], 1.5, true, false, "", "true", 5, false, "", ""] remoteExec ["addAction", 0, false];
 			};
 		};
 	};
@@ -172,7 +172,7 @@ switch (_lootObject getVariable "lType") do {
 /*		Spawn a couple matching mags and a couple random ones			*/
 /*		NOTE: *_playerUnit* is the closest player at object spawn		*/
 _rndSpawnMatchingMag = floor (random 100);
-if (_rndSpawnMatchingMag < 5 && !isNull {_playerUnit}) then {
+if (_rndSpawnMatchingMag < 5 && !isNull _playerUnit) then {
 	//Matching Mags
 	_rndMatchingMagCount = round (random 2);
 	_playerPrimaryWeapon = primaryWeapon _playerUnit;
