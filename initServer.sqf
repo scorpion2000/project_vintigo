@@ -8,25 +8,10 @@ mapLocations = nearestLocations [
 		"Name", 
 		"NameMarine", 
 		"NameCity", 
-		"NameCityCapital", 
-		"FlatArea", 
-		"FlatAreaCity", 
-		"FlatAreaCitySmall"
-	], 
-	25000
-];
-
-ELocations = nearestLocations [
-	selectRandom allPlayers, 
-	[
-		"FlatArea",
-		"FlatAreaCity", 
-		"FlatAreaCitySmall",
-		"Hill",
-		"VegetationBroadleaf",
-		"VegetationFir",
-		"VegetationPalm",
-		"VegetationVineyard"
+		"NameCityCapital",
+		"NameLocal", 
+		"Strategic", 
+		"StrongpointArea"
 	], 
 	25000
 ];
