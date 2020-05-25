@@ -14,7 +14,7 @@ if !(isNil {_playerDatabaseID}) then {
 		_player setPosASL _persistanceResult#0;
 		_player setDir _persistanceResult#3;
 		_playerID = owner _player;
-		systemChat str _playerID;
+		//systemChat str _playerID;
 		
 		KSS_hunger = _persistanceResult#1;
 		KSS_thirst = _persistanceResult#2;
