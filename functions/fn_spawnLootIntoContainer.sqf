@@ -199,6 +199,15 @@ switch (_lootObject getVariable "lType") do {
 	};
 };
 
+_magCModifier = 0;
+switch (_lootObject getVariable "locType") do {
+	case "military": { _magCModifier = 3 };
+	case "barren": { _magCModifier = 0 };
+	case "village": { _magCModifier = 1 };
+	case "city": { _magCModifier = 2 };
+	default { };
+};
+
 //Items that can spawn into any container no matter what
 
 /*		Spawn a couple matching mags and a couple random ones			*/
@@ -206,7 +215,7 @@ switch (_lootObject getVariable "lType") do {
 _rndSpawnMatchingMag = floor (random 100);
 if (_rndSpawnMatchingMag < 5 && !isNull _playerUnit) then {
 	//Matching Mags
-	_rndMatchingMagCount = round (random 2);
+	_rndMatchingMagCount = round (random 2 * _magCModifier);
 	_playerPrimaryWeapon = primaryWeapon _playerUnit;
 	_playerSecondaryWeapon = handgunWeapon _playerUnit;
 
@@ -231,8 +240,8 @@ if (_rndSpawnMatchingMag < 5 && !isNull _playerUnit) then {
 
 //Random Mags
 _rndSpawnRandomMag = floor (random 100);
-if (_rndSpawnRandomMag < 10) then {
-	_rndWeapons = round (random 2) +1;
+if (_rndSpawnRandomMag < 15) then {
+	_rndWeapons = round (random 2 * _magCModifier) +1;
 	while {_rndWeapons > 0} do {
 		_rndWeapon = configName ( selectRandom allPrimaryWeapons );
 
@@ -243,22 +252,31 @@ if (_rndSpawnRandomMag < 10) then {
 	};
 };
 
+_micsCModifier = 0;
+switch (_lootObject getVariable "locType") do {
+	case "military": { _micsCModifier = 1 };
+	case "barren": { _micsCModifier = 1 };
+	case "village": { _micsCModifier = 1 };
+	case "city": { _micsCModifier = 2 };
+	default { };
+};
+
 _rndMisc = floor (random 100);
-if (_rndMisc < 15) then {
-	_rndCount = round (random 2) +1;
+if (_rndMisc < 20) then {
+	_rndCount = round (random 4 * _micsCModifier) +1;
 	
 	while {_rndCount > 0} do {
-		_rnd = round (random 10);
+		_rnd = round (random 100);
 		switch true do {
-			case (_rnd < 7) : {
+			case (_rnd < 70) : {
 				_selected = selectRandom commonMiscItems;
 				_lootObject addItemCargoGlobal [_selected, 1];
 			};
-			case (_rnd >= 6 && _rnd < 9) : {
+			case (_rnd >= 60 && _rnd < 90) : {
 				_selected = selectRandom uncommonMiscItems;
 				_lootObject addItemCargoGlobal [_selected, 1];
 			};
-			case (_rnd >= 9) : {
+			case (_rnd >= 90) : {
 				_selected = selectRandom rareMiscItems;
 				_lootObject addItemCargoGlobal [_selected, 1];
 			};
@@ -267,8 +285,18 @@ if (_rndMisc < 15) then {
 	}
 };
 
+
+_headgearCModifier = 0;
+switch (_lootObject getVariable "locType") do {
+	case "military": { _headgearCModifier = 2 };
+	case "barren": { _headgearCModifier = 0.5 };
+	case "village": { _headgearCModifier = 1 };
+	case "city": { _headgearCModifier = 1 };
+	default { };
+};
+
 _rndHeadgear = floor (random 100);
-if (_rndHeadgear < 25) then {
+if (_rndHeadgear < (15 * _headgearCModifier)) then {
 	_rnd = round (random 100);
 	if (_rnd < 95) then {
 		_selected = selectRandom commonHeadgears;
@@ -279,8 +307,17 @@ if (_rndHeadgear < 25) then {
 	}
 };
 
+_uniformCModifier = 0;
+switch (_lootObject getVariable "locType") do {
+	case "military": { _uniformCModifier = 1 };
+	case "barren": { _uniformCModifier = 0.5 };
+	case "village": { _uniformCModifier = 1 };
+	case "city": { _uniformCModifier = 2 };
+	default { };
+};
+
 _rndUniform = floor (random 100);
-if (_rndUniform < 20) then {
+if (_rndUniform < (10 * _uniformCModifier)) then {
 	_rnd = round (random 100);
 	if (_rnd < 85) then {
 		_selected = selectRandom commonUniforms;
@@ -291,8 +328,17 @@ if (_rndUniform < 20) then {
 	}
 };
 
+_vestCModifier = 0;
+switch (_lootObject getVariable "locType") do {
+	case "military": { _vestCModifier = 2 };
+	case "barren": { _vestCModifier = 0 };
+	case "village": { _vestCModifier = 0.5 };
+	case "city": { _vestCModifier = 1 };
+	default { };
+};
+
 _rndVest = floor (random 100);
-if (_rndVest < 15) then {
+if (_rndVest < (15 * _vestCModifier)) then {
 	_rnd = round (random 100);
 	if (_rnd < 85) then {
 		_selected = selectRandom commonVests;
@@ -303,8 +349,18 @@ if (_rndVest < 15) then {
 	}
 };
 
+_backpackCModifier = 0;
+switch (_lootObject getVariable "locType") do {
+	case "military": { _backpackCModifier = 2 };
+	case "barren": { _backpackCModifier = 0.5 };
+	case "village": { _backpackCModifier = 1 };
+	case "city": { _backpackCModifier = 2 };
+	default { };
+};
+
+
 _rndBackpack = floor (random 100);
-if (_rndBackpack < 15) then {
+if (_rndBackpack < (15 * _backpackCModifier)) then {
 	_rnd = round (random 100);
 	if (_rnd < 85) then {
 		_selected = selectRandom commonBackpack;
@@ -315,8 +371,17 @@ if (_rndBackpack < 15) then {
 	}
 };
 
+_attachmentsCModifier = 0;
+switch (_lootObject getVariable "locType") do {
+	case "military": { _attachmentsCModifier = 3 };
+	case "barren": { _attachmentsCModifier = 0 };
+	case "village": { _attachmentsCModifier = 1 };
+	case "city": { _attachmentsCModifier = 1.5 };
+	default { };
+};
+
 _rndAttachments = floor (random 100);
-if (_rndAttachments < 5) then {
+if (_rndAttachments < (5 * _attachmentsCModifier)) then {
 	_rnd = round (random 100);
 	if (_rnd < 90) then {
 		_selected = selectRandom commonWeaponAttachments;

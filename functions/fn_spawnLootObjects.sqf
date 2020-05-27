@@ -49,8 +49,8 @@ if ((_building getVariable "lCount") <= (count (_allBuildingPos) / 4)) then {
 		_lootObject setVariable ["locType", "village"];
 		_rnd = floor (random 100);
 		switch true do {
-			case (_rnd < 30) : { _lootObject setVariable ["lType", "empty"] };
-			case (_rnd >= 30 && _rnd < 65) : { _lootObject setVariable ["lType", "food"] };
+			case (_rnd < 40) : { _lootObject setVariable ["lType", "empty"] };
+			case (_rnd >= 40 && _rnd < 65) : { _lootObject setVariable ["lType", "food"] };
 			case (_rnd >= 65 && _rnd < 88) : { _lootObject setVariable ["lType", "medical"] };
 			case (_rnd >= 88 && _rnd < 98) : { _lootObject setVariable ["lType", "weapons_pistol"] };
 			case (_rnd >= 98) : { _lootObject setVariable ["lType", "weapons_rifle"] };
