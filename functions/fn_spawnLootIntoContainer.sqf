@@ -6,8 +6,16 @@ switch (_lootObject getVariable "lType") do {
 		//[_lootObject, ["Show loot type", {hint format ["%1\nempty", typeOf (_this select 0)]}], [], 1.5, true, false, "", "true", 5, false, "", ""] remoteExec ["addAction", 0, false];
 	};
 	case "food" : {
-		_foodCount = round (random 2);
-		_drinkCount = round (random 2);
+		_foodCModifier = 0;
+		switch (_lootObject getVariable "locType") do {
+			case "military": { _foodCModifier = 1 };
+			case "barren": { _foodCModifier = 1 };
+			case "village": { _foodCModifier = 2 };
+			case "city": { _foodCModifier = 3 };
+			default { };
+		};
+		_foodCount = round (random 1 * _foodCModifier);
+		_drinkCount = round (random 1 * _foodCModifier);
 		_y = _foodCount + _drinkCount;
 		while {_y > 0} do {
 			if (_foodCount > 0) then {
@@ -27,9 +35,17 @@ switch (_lootObject getVariable "lType") do {
 		//[_lootObject, ["Show loot type", {hint format ["%1\nfood", typeOf (_this select 0)]}], [], 1.5, true, false, "", "true", 5, false, "", ""] remoteExec ["addAction", 0, false];
 	};
 	case "medical" : {
-		_bandages = round (random 6);
-		_injectors = round (random 2);
-		_fluids = round (random 1);
+		_midecalCModifier = 0;
+		switch (_lootObject getVariable "locType") do {
+			case "military": { _midecalCModifier = 3 };
+			case "barren": { _midecalCModifier = 0 };
+			case "village": { _midecalCModifier = 1 };
+			case "city": { _midecalCModifier = 2 };
+			default { };
+		};
+		_bandages = round (random 2 * _midecalCModifier);
+		_injectors = round (random 1 * _midecalCModifier);
+		_fluids = round (random 0 + _midecalCModifier);
 		_y = _bandages + _injectors + _fluids;
 		while {_y > 0} do {
 			if (_bandages > 0) then {
@@ -55,9 +71,17 @@ switch (_lootObject getVariable "lType") do {
 		//[_lootObject, ["Show loot type", {hint format ["%1\nmedical", typeOf (_this select 0)]}], [], 1.5, true, false, "", "true", 5, false, "", ""] remoteExec ["addAction", 0, false];
 	};
 	case "weapons_pistol" : {
+		_pistolCModifier = 0;
+		switch (_lootObject getVariable "locType") do {
+			case "military": { _pistolCModifier = 30 };
+			case "barren": { _pistolCModifier = 0 };
+			case "village": { _pistolCModifier = 10 };
+			case "city": { _pistolCModifier = 20 };
+			default { };
+		};
 		_rnd = round (random 100);
 		switch true do {
-			case (_rnd < 55) : {
+			case (_rnd < (55 - _pistolCModifier)) : {
 				_selected = selectRandom commonHandgunWeaponList;
 				_lootObject addWeaponCargoGlobal [_selected, 1];
 				_supportedMags = getArray (configFile >> "CfgWeapons" >> _selected >> "magazines");
@@ -67,7 +91,7 @@ switch (_lootObject getVariable "lType") do {
 				//_lootObject addAction ["Show loot type", {hint format ["%1\nweapons_pistol\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}, [], 1.5, true, false, "", "true", 5, false, "", ""];
 				//[_lootObject, ["Show loot type", {hint format ["%1\nweapons_pistol\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}], [], 1.5, true, false, "", "true", 5, false, "", ""] remoteExec ["addAction", 0, false];
 			};
-			case (_rnd >= 55 && _rnd < 90) : {
+			case (_rnd >= (55 - _pistolCModifier) && _rnd < 90) : {
 				_selected = selectRandom uncommonHandgunWeaponList;
 				_lootObject addWeaponCargoGlobal [_selected, 1];
 				_supportedMags = getArray (configFile >> "CfgWeapons" >> _selected >> "magazines");
@@ -90,9 +114,17 @@ switch (_lootObject getVariable "lType") do {
 		};
 	};
 	case "weapons_rifle" : {
+		_rifleCModifier = 0;
+		switch (_lootObject getVariable "locType") do {
+			case "military": { _rifleCModifier = 25 };
+			case "barren": { _rifleCModifier = 0 };
+			case "village": { _rifleCModifier = 5 };
+			case "city": { _rifleCModifier = 15 };
+			default { };
+		};
 		_rnd = round (random 100);
 		switch true do {
-			case (_rnd < 50) : {
+			case (_rnd < (50 - _rifleCModifier)) : {
 				_selected = selectRandom commonPrimaryWeaponList;
 				_lootObject addWeaponCargoGlobal [_selected, 1];
 				_supportedMags = getArray (configFile >> "CfgWeapons" >> _selected >> "magazines");
@@ -102,7 +134,7 @@ switch (_lootObject getVariable "lType") do {
 				_lootObject addAction ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}, [], 1.5, true, false, "", "true", 5, false, "", ""];
 				[_lootObject, ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}], [], 1.5, true, false, "", "true", 5, false, "", ""] remoteExec ["addAction", 0, false];
 			};
-			case (_rnd >= 50 && _rnd < 75) : {
+			case (_rnd >= (50 - _rifleCModifier) && _rnd < 75) : {
 				_selected = selectRandom uncommonPrimaryWeaponList;
 				_lootObject addWeaponCargoGlobal [_selected, 1];
 				_supportedMags = getArray (configFile >> "CfgWeapons" >> _selected >> "magazines");
@@ -295,7 +327,7 @@ if (_rndAttachments < 5) then {
 	}
 };
 
-if (count ((getItemCargo _lootObject) select 0) == 0) then {
+if (count ((getItemCargo _lootObject) select 0) == 0 && !isNil {_lootObject getVariable "buildingName"}) then {
 	_h = _lootObject getVariable "buildingName";
 	_h setVariable ["lootObjectCount", (_h getVariable "lootObjectCount") -1];
 

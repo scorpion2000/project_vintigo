@@ -19,7 +19,7 @@ if ((_building getVariable "lCount") <= (count (_allBuildingPos) / 4)) then {
 	};
 	_lootObject setDir (random 360);
 	_lootObject setVariable ["buildingName", _building];
-	_lootObject setVariable ["isLooted", false];
+	//_lootObject setVariable ["isLooted", false];
 	_objectPos = getPosASL _lootObject;
 	_playerList = allPlayers apply {[_objectPos distanceSqr _x, _x]};
 	_playerList sort true;
@@ -28,6 +28,7 @@ if ((_building getVariable "lCount") <= (count (_allBuildingPos) / 4)) then {
 	_lootIsOutside = true;
 	// City locations
 	if (count nearestLocations [_lootObject, ["NameCity", "NameCityCapital", "NameMarine", "fakeTown"], 300] != 0) then {
+		_lootObject setVariable ["locType", "city"];
 		_rnd = floor (random 100);
 		switch true do {
 			case (_rnd < 30) : { _lootObject setVariable ["lType", "empty"] };
@@ -45,6 +46,7 @@ if ((_building getVariable "lCount") <= (count (_allBuildingPos) / 4)) then {
 
 	// Village locations
 	if (count nearestLocations [_lootObject, ["NameVillage", "Name", "NameMarine"], 300] != 0) then {
+		_lootObject setVariable ["locType", "village"];
 		_rnd = floor (random 100);
 		switch true do {
 			case (_rnd < 30) : { _lootObject setVariable ["lType", "empty"] };
@@ -62,13 +64,14 @@ if ((_building getVariable "lCount") <= (count (_allBuildingPos) / 4)) then {
 
 	// Military locations
 	if (count nearestLocations [_lootObject, ["NameLocal", "Strategic", "StrongpointArea"], 300] != 0) then {
+		_lootObject setVariable ["locType", "military"];
 		_rnd = floor (random 100);
 		switch true do {
-			case (_rnd < 33) : { _lootObject setVariable ["lType", "empty"] };
-			case (_rnd >= 33 && _rnd < 43) : { _lootObject setVariable ["lType", "food"] };
-			case (_rnd >= 43 && _rnd < 63) : { _lootObject setVariable ["lType", "medical"] };
-			case (_rnd >= 63 && _rnd < 83) : { _lootObject setVariable ["lType", "weapons_pistol"] };
-			case (_rnd >= 83 && _rnd < 98) : { _lootObject setVariable ["lType", "weapons_rifle"] };
+			case (_rnd < 20) : { _lootObject setVariable ["lType", "empty"] };
+			case (_rnd >= 20 && _rnd < 35) : { _lootObject setVariable ["lType", "food"] };
+			case (_rnd >= 35 && _rnd < 55) : { _lootObject setVariable ["lType", "medical"] };
+			case (_rnd >= 55 && _rnd < 80) : { _lootObject setVariable ["lType", "weapons_pistol"] };
+			case (_rnd >= 80 && _rnd < 98) : { _lootObject setVariable ["lType", "weapons_rifle"] };
 			case (_rnd >= 98) : { _lootObject setVariable ["lType", "weapons_launcher"] };
 			
 			default { _lootObject setVariable ["lType", "empty"] };
@@ -78,6 +81,7 @@ if ((_building getVariable "lCount") <= (count (_allBuildingPos) / 4)) then {
 	};
 	
 	if (_lootIsOutside) then {
+		_lootObject setVariable ["locType", "barren"];
 		_rnd = floor (random 100);
 			switch true do {
 				case (_rnd < 60) : { _lootObject setVariable ["lType", "empty"] };
