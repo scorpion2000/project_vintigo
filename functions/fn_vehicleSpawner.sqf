@@ -1,4 +1,4 @@
-for "_i" from 1 to 24 do {
+for "_i" from 1 to 48 do {
 	_spawnLocRnd = selectRandom mapLocations;
 	spawnLoc = getPos _spawnLocRnd vectorAdd [random [-500, 0, 500], random [-500, 0, 500], 0];
 	_fixedSpawnLoc = spawnLoc;
