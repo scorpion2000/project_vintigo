@@ -3,6 +3,7 @@ params ["_wreckType", "_wreckPos", "_id"];
 _wreck = createVehicle [_wreckType, _wreckPos, [], 0, "NONE"];
 _wreck setDir random 360;
 _wreck setPosATL [(getPos _wreck) select 0, (getPos _wreck) select 1, 0];
+_wreck setVectorUp surfaceNormal position _wreck;
 
 _mrk = createMarker [format ["eventMarker_%1", _id], _wreck];
 _mrk setMarkerType "hd_unknown";
