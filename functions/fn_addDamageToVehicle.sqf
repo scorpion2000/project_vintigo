@@ -1,6 +1,6 @@
 params ["_vehicle"];
 
-_rndCount = floor (random 3);
+_rndCount = floor (random 4);
 for "_i" from 1 to _rndCount do {
 	_rndHit = floor (random 7);
 	switch (_rndHit) do {
