@@ -114,6 +114,15 @@ extremeMilVehicles = [
 	"rhs_btw60_msv"
 ];
 
+commonHelis = [
+	"C_Heli_Light_01_civil_F"
+];
+
+rareHelis = [
+	"RHS_UH60M20",
+	"RHS_Mi8T_vdv"
+];
+
 
 
 [] execVM "scripts\clean.sqf";
@@ -132,5 +141,6 @@ extremeMilVehicles = [
 
 [] remoteExec ["prv_fnc_vehicleSpawner", 2, false];
 [] remoteExec ["prv_fnc_milVehicleSpawner", 2, false];
+[] remoteExec ["prv_fnc_spawnHelis", 2, false];
 
 [] execVM "HG\Setup\fn_serverInitialization.sqf";
