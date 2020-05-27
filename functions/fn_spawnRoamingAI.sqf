@@ -23,7 +23,6 @@ while {roamingAICount <= 48} do {
 		_searchDist = 600;
 		while {surfaceIsWater _fixedSpawnLoc} do {
 			_fixedSpawnLoc = [_spawnLoc, 0, _searchDist, 0, 0, 0, 0] call BIS_fnc_findSafePos;
-			_fixedSpawnLoc pushBack 0;	//BIS_fnc_findSafePos returns a 2D pos, most things expect 3D pos
 			_searchDist = _searchDist + 200;
 			_spawnLoc = _fixedSpawnLoc;
 		}
