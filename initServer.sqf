@@ -79,6 +79,43 @@ rareCivVehicles = [
 	"ivory_gti"
 ];
 
+commonMilVehicles = [
+	"rhs_tigr_msv",
+	"rhsusf_m1025_d",
+	"rhsusf_m1025_w",
+	"rhsusf_m998_d_4dr_fulltop",
+	"rhsusf_m998_w_4dr_fulltop"
+];
+
+uncommonMilVehicles = [
+	"rhsusf_M977A4_usarmy_wd",
+	"rhsusf_M977A4_usarmy_d",
+	"rhsusf_M1078A1P2_WD_fmtv_usarmy",
+	"rhsusf_M1078A1P2_D_fmtv_usarmy",
+	"RHS_Ural_MSV_01",
+	"rhs_zil131_msv",
+	"rhs_kamaz5350_flatbed_cover_msv",
+	"rhs_gaz66_msv"
+];
+
+
+rareMilVehicles = [
+	"rhsusf_m1025_w_m2",
+	"rhsusf_m1025_d_m2",
+	"rhs_tigr_m_msv"
+];
+
+legendaryMilVehicles = [
+	"rhsusf_m113d_usarmy",
+	"rhsusf_m113_usarmy"
+];
+
+extremeMilVehicles = [
+	"rhs_btw60_msv"
+];
+
+
+
 [] execVM "scripts\clean.sqf";
 
 [] execVM "scripts\handgunWeaponList.sqf";
@@ -94,5 +131,6 @@ rareCivVehicles = [
 [] execVM "scripts\startWrecksEvent.sqf";
 
 [] remoteExec ["prv_fnc_vehicleSpawner", 2, false];
+[] remoteExec ["prv_fnc_milVehicleSpawner", 2, false];
 
 [] execVM "HG\Setup\fn_serverInitialization.sqf";
