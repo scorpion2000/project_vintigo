@@ -19,6 +19,7 @@ class VintigoFunctions {
 		class spawnEvent {};
 		class addDamageToVehicle {};
 		class spawnHelis {};
+		class banditBossSpawn {};
 		/*
 		class spawnEvent {};
 		class buyAmmunition {};

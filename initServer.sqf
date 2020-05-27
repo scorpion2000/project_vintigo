@@ -139,6 +139,8 @@ rareHelis = [
 
 [] execVM "scripts\startWrecksEvent.sqf";
 
+[] execVM "scripts\spawnBanditBoss.sqf";
+
 [] remoteExec ["prv_fnc_vehicleSpawner", 2, false];
 [] remoteExec ["prv_fnc_milVehicleSpawner", 2, false];
 [] remoteExec ["prv_fnc_spawnHelis", 2, false];
