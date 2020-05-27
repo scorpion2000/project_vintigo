@@ -1,41 +1,5 @@
 while {roamingAIVehicleCount <= 16} do {
 	_group = createGroup [EAST, true];
-	
-	/*_randomSpawnLoc = selectRandom mapLocations;
-	
-	if (surfaceIsWater getPos _randomSpawnLoc) then {
-		_fixedSpawnLoc = _randomSpawnLoc;
-		_searchDist = 600;
-		while {surfaceIsWater _fixedSpawnLoc} do {
-			systemChat "AI Car Spawn Is In Water!";
-			_fixedSpawnLoc = [_randomSpawnLoc, 0, _searchDist, 0, 0, 0, 0] call BIS_fnc_findSafePos;
-			systemChat str _searchDist;
-			_fixedSpawnLoc pushBack 0;	//BIS_fnc_findSafePos returns a 2D pos, most things expect 3D pos
-			_searchDist = _searchDist + 200;
-		};
-		_randomSpawnLoc = _fixedSpawnLoc;
-	};
-
-	_playerCheck = true;
-	while {_playerCheck} do {
-		_randomSpawnLoc = selectRandom mapLocations;
-		{
-			if (_x inArea _randomSpawnLoc) then {
-				_playerCheck = true;
-			} else {
-				_playerCheck = false;
-			}
-		} forEach playableUnits;
-	};
-
-	_closestRoad = getPos _randomSpawnLoc vectorAdd [random [-500, 0, 500], random [-500, 0, 500], 0] call BIS_fnc_nearestRoad;
-	if (str _closestRoad == "[0,0,0]") then {
-		while {str _closestRoad == "[0,0,0]"} do {
-			_closestRoad = getPos _randomSpawnLoc vectorAdd [random [-500, 0, 500], random [-500, 0, 500], 0] call BIS_fnc_nearestRoad;
-		};
-	};
-
-	systemChat str getPos _randomSpawnLoc;*/
 
 	_randomSpawnLoc = selectRandom mapLocations;
 	_playerCheck = true;
