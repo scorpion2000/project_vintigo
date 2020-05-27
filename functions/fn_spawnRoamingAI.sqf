@@ -43,7 +43,7 @@ while {roamingAICount <= 48} do {
 	while {_rnd > 0} do {
 		_WPLoc = getPos (selectRandom mapLocations) vectorAdd [(random 1000) -500, (random 1000) -500, 0];
 		_fixedWPLoc = [_WPLoc, 0, 600, 0, 0, 0, 0] call BIS_fnc_findSafePos;
-		while {surfaceIsWater _fixedWPLoc} do {
+		while {surfaceIsWater _fixedWPLoc || isNil {_fixedWPLoc}} do {
 			_WPLoc = getPos (selectRandom mapLocations) vectorAdd [(random 1000) -500, (random 1000) -500, 0];
 			_fixedWPLoc = [_WPLoc, 0, 600, 0, 0, 0, 0] call BIS_fnc_findSafePos;
 		};
