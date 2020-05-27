@@ -22,17 +22,14 @@ while {roamingAICount <= 48} do {
 	if (surfaceIsWater _spawnLoc) then {
 		_searchDist = 600;
 		while {surfaceIsWater _fixedSpawnLoc} do {
-			systemChat "AI Spawn Is In Water!";
 			_fixedSpawnLoc = [_spawnLoc, 0, _searchDist, 0, 0, 0, 0] call BIS_fnc_findSafePos;
-			systemChat str _searchDist;
 			_fixedSpawnLoc pushBack 0;	//BIS_fnc_findSafePos returns a 2D pos, most things expect 3D pos
 			_searchDist = _searchDist + 200;
 			_spawnLoc = _fixedSpawnLoc;
-			systemChat str _fixedSpawnLoc;
 		}
 	};
 	
-	_roamingAI = _group createUnit ["I_Survivor_F", _spawnLoc, [], 0, "NONE"];
+	_roamingAI = _group createUnit ["I_Survivor_F", _spawnLoc, [], 1, "NONE"];
 	_roamingAI setUnitLoadout (selectRandom b_loadoutArray);
 	_roamingAI addRating -10000;
 	_roamingAI addEventHandler ["Killed", {roamingAICount = roamingAICount -1}];

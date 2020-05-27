@@ -7,9 +7,7 @@ for "_i" from 1 to 48 do {
 	if (surfaceIsWater spawnLoc) then {
 		_searchDist = 600;
 		while {surfaceIsWater _fixedSpawnLoc} do {
-			systemChat "Car Spawn Is In Water!";
 			_fixedSpawnLoc = [spawnLoc, 0, _searchDist, 0, 0, 0, 0] call BIS_fnc_findSafePos;
-			systemChat str _searchDist;
 			_fixedSpawnLoc pushBack 0;	//BIS_fnc_findSafePos returns a 2D pos, most things expect 3D pos
 			_nearestRoad = [_fixedSpawnLoc, 200] call BIS_fnc_nearestRoad;
 			_searchDist = _searchDist + 200;
