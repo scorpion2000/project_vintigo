@@ -12,6 +12,7 @@ switch (_lootObject getVariable "lType") do {
 			case "barren": { _foodCModifier = 1 };
 			case "village": { _foodCModifier = 2 };
 			case "city": { _foodCModifier = 3 };
+			//case "crashEvent": { _foodCModifier = 0 }; //Can't be in Crash Event crates
 			default { };
 		};
 		_foodCount = round (random 1 * _foodCModifier);
@@ -41,6 +42,7 @@ switch (_lootObject getVariable "lType") do {
 			case "barren": { _midecalCModifier = 0 };
 			case "village": { _midecalCModifier = 1 };
 			case "city": { _midecalCModifier = 2 };
+			//case "crashEvent": { _midecalCModifier = 2 }; //Can't be in Crash Event crates
 			default { };
 		};
 		_bandages = round (random 2 * _midecalCModifier);
@@ -77,6 +79,7 @@ switch (_lootObject getVariable "lType") do {
 			case "barren": { _pistolCModifier = 0 };
 			case "village": { _pistolCModifier = 10 };
 			case "city": { _pistolCModifier = 20 };
+			//case "crashEvent": { _pistolCModifier = 20 }; //Can't be in Crash Event crates
 			default { };
 		};
 		_rnd = round (random 100);
@@ -120,6 +123,7 @@ switch (_lootObject getVariable "lType") do {
 			case "barren": { _rifleCModifier = 0 };
 			case "village": { _rifleCModifier = 5 };
 			case "city": { _rifleCModifier = 15 };
+			case "crashEvent": { _rifleCModifier = 50 }; //Guarantee a weapon for crashsite events (note, guarantees AT LEAST a common weapon)
 			default { };
 		};
 		_rnd = round (random 100);
@@ -199,15 +203,6 @@ switch (_lootObject getVariable "lType") do {
 	};
 };
 
-_magCModifier = 0;
-switch (_lootObject getVariable "locType") do {
-	case "military": { _magCModifier = 3 };
-	case "barren": { _magCModifier = 0 };
-	case "village": { _magCModifier = 1 };
-	case "city": { _magCModifier = 2 };
-	default { };
-};
-
 //Items that can spawn into any container no matter what
 
 /*		Spawn a couple matching mags and a couple random ones			*/
@@ -215,7 +210,7 @@ switch (_lootObject getVariable "locType") do {
 _rndSpawnMatchingMag = floor (random 100);
 if (_rndSpawnMatchingMag < 5 && !isNull _playerUnit) then {
 	//Matching Mags
-	_rndMatchingMagCount = round (random 2 * _magCModifier);
+	_rndMatchingMagCount = (round (random 3)) +1; //+1, if we spawn a matching mag, we should give at least one to the player
 	_playerPrimaryWeapon = primaryWeapon _playerUnit;
 	_playerSecondaryWeapon = handgunWeapon _playerUnit;
 
@@ -238,6 +233,16 @@ if (_rndSpawnMatchingMag < 5 && !isNull _playerUnit) then {
 	};
 };
 
+_magCModifier = 0;
+switch (_lootObject getVariable "locType") do {
+	case "military": { _magCModifier = 3 };
+	case "barren": { _magCModifier = 0 };
+	case "village": { _magCModifier = 1 };
+	case "city": { _magCModifier = 2 };
+	case "crashEvent": { _magCModifier = 3 };
+	default { };
+};
+
 //Random Mags
 _rndSpawnRandomMag = floor (random 100);
 if (_rndSpawnRandomMag < 15) then {
@@ -258,6 +263,7 @@ switch (_lootObject getVariable "locType") do {
 	case "barren": { _micsCModifier = 1 };
 	case "village": { _micsCModifier = 1 };
 	case "city": { _micsCModifier = 2 };
+	case "crashEvent": { _micsCModifier = 1 };
 	default { };
 };
 
@@ -292,6 +298,7 @@ switch (_lootObject getVariable "locType") do {
 	case "barren": { _headgearCModifier = 0.5 };
 	case "village": { _headgearCModifier = 1 };
 	case "city": { _headgearCModifier = 1 };
+	case "crashEvent": { _headgearCModifier = 3 };
 	default { };
 };
 
@@ -313,6 +320,7 @@ switch (_lootObject getVariable "locType") do {
 	case "barren": { _uniformCModifier = 0.5 };
 	case "village": { _uniformCModifier = 1 };
 	case "city": { _uniformCModifier = 2 };
+	case "crashEvent": { _uniformCModifier = 0.5 };
 	default { };
 };
 
@@ -334,6 +342,7 @@ switch (_lootObject getVariable "locType") do {
 	case "barren": { _vestCModifier = 0 };
 	case "village": { _vestCModifier = 0.5 };
 	case "city": { _vestCModifier = 1 };
+	case "crashEvent": { _vestCModifier = 3 };
 	default { };
 };
 
@@ -355,6 +364,7 @@ switch (_lootObject getVariable "locType") do {
 	case "barren": { _backpackCModifier = 0.5 };
 	case "village": { _backpackCModifier = 1 };
 	case "city": { _backpackCModifier = 2 };
+	case "crashEvent": { _backpackCModifier = 3 };
 	default { };
 };
 
@@ -377,6 +387,7 @@ switch (_lootObject getVariable "locType") do {
 	case "barren": { _attachmentsCModifier = 0 };
 	case "village": { _attachmentsCModifier = 1 };
 	case "city": { _attachmentsCModifier = 1.5 };
+	case "crashEvent": { _attachmentsCModifier = 2 };
 	default { };
 };
 

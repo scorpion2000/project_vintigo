@@ -14,6 +14,7 @@ while {_rndCount > 0} do {
 	clearItemCargoGlobal _crate; clearWeaponCargoGlobal _crate; clearMagazineCargoGlobal _crate; clearBackpackCargoGlobal _crate;
 	[_crate, _crate] call ace_common_fnc_claim;
 	_crate setVariable ["lType", "weapons_rifle"];
+	_crate setVariable ["locType", "crashEvent"];
 	
 	[_crate, objNull] remoteExec ["prv_fnc_spawnLootIntoContainer", 2, false];
 	
