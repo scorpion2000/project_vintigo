@@ -1,33 +1,25 @@
-b_loadout_1 = getUnitLoadout bandit_l_1;
-b_loadout_2 = getUnitLoadout bandit_l_2;
-b_loadout_3 = getUnitLoadout bandit_l_3;
-b_loadout_4 = getUnitLoadout bandit_l_4;
-b_loadout_5 = getUnitLoadout bandit_l_5;
-b_loadout_6 = getUnitLoadout bandit_l_6;
-b_loadout_7 = getUnitLoadout bandit_l_7;
-b_loadout_8 = getUnitLoadout bandit_l_8;
-b_loadout_9 = getUnitLoadout bandit_l_9;
-b_loadout_10 = getUnitLoadout bandit_l_10;
-b_loadout_11 = getUnitLoadout bandit_l_11;
-b_loadout_12 = getUnitLoadout bandit_l_12;
-bb_loadout_1 = getUnitLoadout banditBoss_l_1;
-bb_loadout_2 = getUnitLoadout banditBoss_l_2;
-bb_loadout_3 = getUnitLoadout banditBoss_l_3;
-deleteVehicle bandit_l_1;
-deleteVehicle bandit_l_2;
-deleteVehicle bandit_l_3;
-deleteVehicle bandit_l_4;
-deleteVehicle bandit_l_5;
-deleteVehicle bandit_l_6;
-deleteVehicle bandit_l_7;
-deleteVehicle bandit_l_8;
-deleteVehicle bandit_l_9;
-deleteVehicle bandit_l_10;
-deleteVehicle bandit_l_11;
-deleteVehicle bandit_l_12;
-deleteVehicle banditBoss_l_1;
-deleteVehicle banditBoss_l_2;
-deleteVehicle banditBoss_l_3;
+/*					HOW TO USE				*/
+/*			 Place a unit in editor			*/
+/*		Setup it's loadout using arsenal	*/
+/*		 Use getUnitLoadout unitVarName		*/
+/*		  Copy and paste the array here		*/
 
-b_loadoutArray = [b_loadout_1, b_loadout_2, b_loadout_3, b_loadout_4, b_loadout_5, b_loadout_6, b_loadout_7, b_loadout_8, b_loadout_9, b_loadout_10, b_loadout_11, b_loadout_12];
-bb_loadoutArray = [bb_loadout_1, bb_loadout_2, bb_loadout_3];
+b_loadoutArray = [
+	[["SMG_02_F","","","",["30Rnd_9x21_Mag_SMG_02",30],[],""],[],[],["rhs_uniform_g3_blk",[]],["V_BandollierB_blk",[["30Rnd_9x21_Mag_SMG_02_Tracer_Red",4,30]]],[],"H_Beret_blk","",[],["ItemMap","","","ItemCompass","ItemWatch",""]],
+	[["SMG_02_F","","","",["30Rnd_9x21_Mag_SMG_02",30],[],""],[],[],["rhs_uniform_vdv_emr_des",[]],["rhs_vest_commander",[["30Rnd_9x21_Mag_SMG_02_Tracer_Red",4,30]]],[],"H_Bandanna_cbr","rhsusf_shemagh2_gogg_tan",[],["ItemMap","","","ItemCompass","ItemWatch",""]],
+	[["SMG_02_F","","","",["30Rnd_9x21_Mag_SMG_02",30],[],""],[],[],["U_O_R_Gorka_01_black_F",[]],["V_Chestrig_blk",[["30Rnd_9x21_Mag_SMG_02_Tracer_Red",4,30]]],[],"H_Watchcap_blk","rhs_googles_black",[],["ItemMap","","","ItemCompass","ItemWatch",""]],
+	[["SMG_02_F","","","",["30Rnd_9x21_Mag_SMG_02",30],[],""],[],[],["U_B_CTRG_2",[]],["rhs_6sh92_vsr",[["30Rnd_9x21_Mag_SMG_02_Tracer_Red",4,30]]],[],"rhs_fieldcap_ml","G_Aviator",[],["ItemMap","","","ItemCompass","ItemWatch",""]],
+	[["SMG_03C_black","","","",["50Rnd_570x28_SMG_03",50],[],""],[],[],["U_BG_Guerilla1_1",[]],["V_Rangemaster_belt",[["50Rnd_570x28_SMG_03",3,50]]],[],"rhs_beanie_green","G_Bandanna_oli",[],["ItemMap","","","ItemCompass","ItemWatch",""]],
+	[["SMG_03C_black","","","",["50Rnd_570x28_SMG_03",50],[],""],[],[],["UK3CB_BAF_U_CombatUniform_DPMT_ShortSleeve",[]],["V_HarnessO_brn",[["50Rnd_570x28_SMG_03",4,50]]],[],"H_HelmetB_light","rhs_balaclava",[],["ItemMap","","","ItemCompass","ItemWatch",""]],
+	[["SMG_03C_black","","","",["50Rnd_570x28_SMG_03",50],[],""],[],[],["U_C_HunterBody_grn",[]],["UK3CB_BAF_V_PLCE_Webbing_Plate_Winter",[["50Rnd_570x28_SMG_03",4,50]]],[],"UK3CB_BAF_H_Mk7_Win_A","rhsusf_shemagh_white",[],["ItemMap","","","ItemCompass","ItemWatch",""]],
+	[["SMG_03C_black","","","",["50Rnd_570x28_SMG_03",50],[],""],[],[],["U_BG_leader",[]],["rhs_6b23_crew",[["50Rnd_570x28_SMG_03",4,50]]],[],"rhsusf_bowman_cap","rhs_ess_black",[],["ItemMap","","","ItemCompass","ItemWatch",""]],
+	[["SMG_01_F","","","",["30Rnd_45ACP_Mag_SMG_01",25],[],""],[],[],["U_I_G_Story_Protagonist_F",[]],["rhs_6sh46",[["30Rnd_45ACP_Mag_SMG_01_Tracer_Red",4,25]]],[],"H_RacingHelmet_1_white_F","",[],["ItemMap","","","ItemCompass","ItemWatch",""]],
+	[["SMG_01_F","","","",["30Rnd_45ACP_Mag_SMG_01",25],[],""],[],[],["U_BG_Guerrilla_6_1",[]],["rhs_vest_commander",[["30Rnd_45ACP_Mag_SMG_01_Tracer_Red",4,25]]],[],"H_HelmetCrew_I","",[],["ItemMap","","","ItemCompass","ItemWatch",""]],
+	[["SMG_01_F","","","",["30Rnd_45ACP_Mag_SMG_01",25],[],""],[],[],["rhs_uniform_m88_patchless",[]],["rhs_6b23_ML_engineer",[["30Rnd_45ACP_Mag_SMG_01_Tracer_Red",4,25]]],[],"rhs_fieldcap_ml","",[],["ItemMap","","","ItemCompass","ItemWatch",""]],
+	[["rhs_weap_m14","","","",["rhsusf_20Rnd_762x51_m80_Mag",20],[],""],[],[],["U_I_G_resistanceLeader_F",[["rhsusf_20Rnd_762x51_m62_Mag",2,20]]],["rhs_6b23",[["rhsusf_20Rnd_762x51_m62_Mag",1,20]]],[],"H_Shemag_olive_hs","",[],["ItemMap","","","ItemCompass","ItemWatch",""]]
+];
+bb_loadoutArray = [
+	[["rhs_weap_hk416d145_wd_2","","","rhsusf_acc_ACOG_wd",["rhs_mag_100Rnd_556x45_Mk262_cmag",100],[],""],[],[],["UK3CB_BAF_U_CombatUniform_DPMW",[["ACE_fieldDressing",20],["ACE_morphine",10],["ACE_personalAidKit",1]]],["rhs_6b23_digi_6sh92_vog_headset",[["rhs_mag_100Rnd_556x45_Mk262_cmag",3,100]]],["B_Carryall_ghex_F",[["rhs_mag_100Rnd_556x45_Mk262_cmag",5,100],["MiniGrenade",10,1],["rvg_flare",3,1],["SmokeShell",5,1],["APERSMine_Range_Mag",1,1]]],"rhs_6b7_1m_emr","G_Balaclava_TI_G_blk_F",[],["ItemMap","","","ItemCompass","ItemWatch",""]],
+	[["rhs_weap_t5000","","","rhs_acc_dh520x56",["rhs_5Rnd_338lapua_t5000",5],[],""],[],[],["U_O_OfficerUniform_ocamo",[["ACE_fieldDressing",20],["ACE_morphine",10],["ACE_personalAidKit",1]]],["rhsusf_iotv_ocp_Teamleader",[["kss_red_beans",5],["kss_bread",5],["kss_soda_coke",5],["kss_soda_mdew",5],["rhs_5Rnd_338lapua_t5000",15,5]]],["B_Carryall_khk",[["ACE_EntrenchingTool",1],["ACE_Clacker",1],["ACE_surgicalKit",1],["ACE_SpottingScope",1],["MiniGrenade",10,1],["rvg_flare",3,1],["SmokeShell",5,1],["APERSMine_Range_Mag",1,1]]],"rhs_6b27m_ml_ess","rhs_scarf",["Rangefinder","","","",[],[],""],["ItemMap","","","ItemCompass","ItemWatch",""]],
+	[["rhs_weap_m240B","","","rhsusf_acc_su230a_mrds",["rhsusf_50Rnd_762x51",50],[],""],[],[],["UK3CB_BAF_U_CombatUniform_MTP_TShirt",[["ACE_fieldDressing",20],["ACE_morphine",10],["ACE_personalAidKit",1]]],["rhsusf_spc_mg",[["rhsusf_100Rnd_762x51",3,100]]],["B_Carryall_khk",[["ACE_EntrenchingTool",1],["ACE_Cellphone",1],["ACE_fieldDressing",15],["ACE_EarPlugs",3],["kss_chicken",3],["ACE_personalAidKit",1],["MiniGrenade",10,1],["rvg_flare",3,1],["SmokeShell",5,1],["APERSMine_Range_Mag",1,1],["rhsusf_100Rnd_762x51",4,100]]],"UK3CB_BAF_H_Mk7_Camo_CESS_C","G_Balaclava_combat",["Rangefinder","","","",[],[],""],["ItemMap","","","ItemCompass","ItemWatch",""]]
+];
