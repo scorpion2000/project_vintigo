@@ -1,0 +1,35 @@
+Special thanks to these people for making their awesome scripts and mods for free for everyone to use!
+They helped me out making project VINTIGO a lot!
+(Note: These are the guys that made this mission possible. More credit is given elsewhere)
+
+Ppgtjmad for his quality shop system, SimpleShops!
+Special thanks to him, I'm using his SQL system
+(SimpleShops is using an old and buggy extDB3, so I decided to live with his workarounds insted of updating it)
+https://github.com/Ppgtjmad/SimpleShops
+
+Quiksilver for his Cleanup script!
+Extended it for my own needs.
+https://forums.bohemia.net/forums/topic/175272-release-recurring-cleanup-script/
+
+Massive thanks to Diwako and his Stalker Anomalies scripts!
+Although I couldn't use them fully, I'm happy to say they work perfectly!
+https://github.com/diwako/stalker_anomalies
+
+Torndeco for the extDB3 mod! Without this, we wouldn't have datbase connection in Arma 3.
+https://bitbucket.org/torndeco/extdb3/wiki/Home
+
+The ACE team for their awesome ACE3 mod!
+Although their medical documentation is lacking still, everything else is extremely well documented.
+Tips to that!
+https://ace3mod.com/
+
+Red Hammer Studios team for their awesome mods <3
+http://www.rhsmods.org/
+
+Shoutout to the Ravage mod creators!
+Although I am using their zombies, and I should give credit, it is a massive pain in the ass to work with the mod.
+Thanks to their enclosed behaviour (no git, no proper wiki, not even a basic function explanation, 
+and their code looks like a bigol' mess. It's incredibly difficult to understand their code properly, and issues
+are baked into everything they created. If you dare use any of their stuff without their systems it's bound
+to give errors. Will definitely switch this mod to something else.
+
