@@ -15,6 +15,7 @@ while {_rndCount > 0} do {
 	[_crate, _crate] call ace_common_fnc_claim;
 	_crate setVariable ["lType", "weapons_rifle"];
 	_crate setVariable ["locType", "crashEvent"];
+	_crate setDir random 360;
 	
 	[_crate, objNull] remoteExec ["prv_fnc_spawnLootIntoContainer", 2, false];
 	
