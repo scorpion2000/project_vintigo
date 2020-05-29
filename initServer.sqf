@@ -2,11 +2,10 @@ enableDynamicSimulationSystem true;
 "EmptyVehicle" setDynamicSimulationDistance 32;
 
 mapLocations = nearestLocations [
-	selectRandom allPlayers, 
+	[worldSize / 2, worldsize / 2, 0], 
 	[
 		"NameVillage", 
 		"Name", 
-		"NameMarine", 
 		"NameCity", 
 		"NameCityCapital",
 		"NameLocal", 
@@ -122,7 +121,6 @@ rareHelis = [
 	"RHS_UH60M20",
 	"RHS_Mi8T_vdv"
 ];
-
 
 
 [] execVM "scripts\clean.sqf";
