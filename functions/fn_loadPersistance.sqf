@@ -3,7 +3,8 @@ params ["_player"];
 private _query = format ["SELECT u_id FROM user WHERE u_UID='%1'", getPlayerUID _player];
 _idResult = [2,_query,false] call HG_fnc_asyncCall;
 _playerDatabaseID = _idResult#0;
-if !(isNil {_playerDatabaseID}) then {
+
+if (!isNil "_playerDatabaseID") then {
 	_playerPos = getPosASL _player;
 	_isAlive = alive _player;
 
@@ -21,7 +22,11 @@ if !(isNil {_playerDatabaseID}) then {
 		
 		_playerID publicVariableClient "KSS_hunger";
 		_playerID publicVariableClient "KSS_thirst";
+	} else {
+		[_player] remoteExec ["prv_fnc_freshPlayerSpawn", 2, false];
 	}
 } else {
+	systemChat "Player Not found In Database";
+	[_player] remoteExec ["prv_fnc_freshPlayerSpawn", 2, false];
 	[_player] call prv_fnc_createUserEntry;
 };

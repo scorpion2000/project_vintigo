@@ -30,7 +30,7 @@ if !(isNil {_playerDatabaseID}) then {
 	_equipmentIDResult = [2,_query,false] call HG_fnc_asyncCall;
 	_equipmentID = _equipmentIDResult#0;
 	//systemChat str _equipmentID;
-	if !(isNil {_equipmentID}) then {
+	if (isNil "_equipmentID") then {
 		private _query = format ["UPDATE user_equipment SET 
 		equip_primary = '%1', 
 		equip_secondary = '%2', 

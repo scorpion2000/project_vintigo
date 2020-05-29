@@ -3,15 +3,20 @@ params ["_player", "_hunger", "_thirst"];
 private _query = format ["SELECT u_id FROM user WHERE u_UID='%1'", getPlayerUID _player];
 _idResult = [2,_query,false] call HG_fnc_asyncCall;
 _playerDatabaseID = _idResult#0;
-if !(isNil {_playerDatabaseID}) then {
+if (!isNil "_playerDatabaseID") then {
 	_playerPos = getPosASL _player;
 	_isAlive = alive _player;
+
+	if (!_isAlive) then {
+		_hunger = 100;
+		_thirst = 100;
+	};
 
 	private _query = format ["SELECT pers_id FROM user_persistance WHERE pers_u_id=%1", _playerDatabaseID];
 	_persistanceIDResult = [2,_query,false] call HG_fnc_asyncCall;
 	_persistanceID = _persistanceIDResult#0;
 	//systemChat str _equipmentID;
-	if !(isNil {_persistanceID}) then {
+	if (!isNil "_persistanceID") then {
 		private _query = format ["UPDATE user_persistance SET 
 		pers_location = '%1', 
 		pers_isAlive = %2, 
