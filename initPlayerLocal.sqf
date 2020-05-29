@@ -28,6 +28,12 @@ player addEventHandler ["InventoryClosed", {
 	};
 }];
 
+player addEventHandler ["Respawn", {
+	[player] remoteExec ["prv_fnc_playerRespawn", 2, false];
+	[player] remoteExec ["prv_fnc_playerPersistance", 2, false];
+	[player] remoteExec ["prv_fnc_saveInventoryToDatabase", 2, false];
+}];
+
 // Persistance stuff
 sleep 1;
 [player] call prv_fnc_loadPersistance;
@@ -35,7 +41,7 @@ sleep 1;
 player addEventHandler [
 	"Killed", 
 	{
-		[(this select 0)] remoteExec ["prv_fnc_playerPersistance", 2, false];
+		[player] remoteExec ["prv_fnc_playerPersistance", 2, false];
 		[player] remoteExec ["prv_fnc_saveInventoryToDatabase", 2, false];
 	}
 ];
