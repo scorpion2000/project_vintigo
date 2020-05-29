@@ -12,8 +12,9 @@ switch (_lootObject getVariable "lType") do {
 			case "barren": { _foodCModifier = 1 };
 			case "village": { _foodCModifier = 2 };
 			case "city": { _foodCModifier = 3 };
-			//case "crashEvent": { _foodCModifier = 0 }; //Can't be in Crash Event crates
-			default { };
+			//case "crashEvent": { _midecalCModifier = 2 }; //Can't be in Crash Event crates
+			case "bbEvent": { _foodCModifier = 2 }; //Can't be in Crash Event crates
+			default { _foodCModifier = 1 };
 		};
 		_foodCount = round (random 1 * _foodCModifier);
 		_drinkCount = round (random 1 * _foodCModifier);
@@ -43,7 +44,8 @@ switch (_lootObject getVariable "lType") do {
 			case "village": { _midecalCModifier = 1 };
 			case "city": { _midecalCModifier = 2 };
 			//case "crashEvent": { _midecalCModifier = 2 }; //Can't be in Crash Event crates
-			default { };
+			case "bbEvent": { _midecalCModifier = 2 };
+			default { _midecalCModifier = 1 };
 		};
 		_bandages = round (random 2 * _midecalCModifier);
 		_injectors = round (random 1 * _midecalCModifier);
@@ -80,7 +82,8 @@ switch (_lootObject getVariable "lType") do {
 			case "village": { _pistolCModifier = 10 };
 			case "city": { _pistolCModifier = 20 };
 			//case "crashEvent": { _pistolCModifier = 20 }; //Can't be in Crash Event crates
-			default { };
+			case "bbEvent": { _pistolCModifier = 20 };
+			default { _pistolCModifier = 0 };
 		};
 		_rnd = round (random 100);
 		switch true do {
@@ -124,7 +127,8 @@ switch (_lootObject getVariable "lType") do {
 			case "village": { _rifleCModifier = 5 };
 			case "city": { _rifleCModifier = 15 };
 			case "crashEvent": { _rifleCModifier = 50 }; //Guarantee a weapon for crashsite events (note, guarantees AT LEAST a common weapon)
-			default { };
+			case "bbEvent": { _rifleCModifier = 50 }; //Guarantee a weapon for crashsite events (note, guarantees AT LEAST a common weapon)
+			default { _rifleCModifier = 0 };
 		};
 		_rnd = round (random 100);
 		switch true do {
@@ -240,7 +244,8 @@ switch (_lootObject getVariable "locType") do {
 	case "village": { _magCModifier = 1 };
 	case "city": { _magCModifier = 2 };
 	case "crashEvent": { _magCModifier = 3 };
-	default { };
+	case "bbEvent": { _magCModifier = 3 };
+	default { _magCModifier = 1 };
 };
 
 //Random Mags
@@ -264,7 +269,8 @@ switch (_lootObject getVariable "locType") do {
 	case "village": { _micsCModifier = 1 };
 	case "city": { _micsCModifier = 2 };
 	case "crashEvent": { _micsCModifier = 1 };
-	default { };
+	case "bbEvent": { _micsCModifier = 2 };
+	default { _micsCModifier = 1 };
 };
 
 _rndMisc = floor (random 100);
@@ -299,7 +305,8 @@ switch (_lootObject getVariable "locType") do {
 	case "village": { _headgearCModifier = 1 };
 	case "city": { _headgearCModifier = 1 };
 	case "crashEvent": { _headgearCModifier = 3 };
-	default { };
+	case "bbEvent": { _headgearCModifier = 2 };
+	default { _headgearCModifier = 1 };
 };
 
 _rndHeadgear = floor (random 100);
@@ -321,7 +328,8 @@ switch (_lootObject getVariable "locType") do {
 	case "village": { _uniformCModifier = 1 };
 	case "city": { _uniformCModifier = 2 };
 	case "crashEvent": { _uniformCModifier = 0.5 };
-	default { };
+	case "bbEvent": { _uniformCModifier = 0.5 };
+	default { _uniformCModifier = 1 };
 };
 
 _rndUniform = floor (random 100);
@@ -343,7 +351,8 @@ switch (_lootObject getVariable "locType") do {
 	case "village": { _vestCModifier = 0.5 };
 	case "city": { _vestCModifier = 1 };
 	case "crashEvent": { _vestCModifier = 3 };
-	default { };
+	case "bbEvent": { _vestCModifier = 3 };
+	default { _vestCModifier = 1 };
 };
 
 _rndVest = floor (random 100);
@@ -365,7 +374,8 @@ switch (_lootObject getVariable "locType") do {
 	case "village": { _backpackCModifier = 1 };
 	case "city": { _backpackCModifier = 2 };
 	case "crashEvent": { _backpackCModifier = 3 };
-	default { };
+	case "bbEvent": { _backpackCModifier = 3 };
+	default { _backpackCModifier = 1 };
 };
 
 
@@ -388,7 +398,8 @@ switch (_lootObject getVariable "locType") do {
 	case "village": { _attachmentsCModifier = 1 };
 	case "city": { _attachmentsCModifier = 1.5 };
 	case "crashEvent": { _attachmentsCModifier = 2 };
-	default { };
+	case "bbEvent": { _attachmentsCModifier = 2 };
+	default { _attachmentsCModifier = 1 };
 };
 
 _rndAttachments = floor (random 100);
