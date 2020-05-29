@@ -60,10 +60,10 @@ _checkFrequencyDefault = 30;					// sleep default
 _checkFrequencyAccelerated = 30;				// sleep accelerated
 _playerThreshold = 20;							// How many players before accelerated cycle kicks in?
 
-_deadMenLimit = 16;								// Bodies. Set -1 to disable.
+_deadMenLimit = -1;								// Bodies. Set -1 to disable.
 _deadMenDistCheck = TRUE;						// TRUE to delete any bodies that are far from players.
 _deadMenDist = 600;								// Distance (meters) from players that bodies are not deleted if below max.
-_deadVehiclesLimit = 6;							// Wrecks. Set -1 to disable.
+_deadVehiclesLimit = -1;						// Wrecks. Set -1 to disable.
 _deadVehicleDistCheck = TRUE;					// TRUE to delete any destroyed vehicles that are far from players.
 _deadVehicleDist = 600;							// Distance (meters) from players that destroyed vehicles are not deleted if below max.
 _craterLimit = 10;								// Craters. Set -1 to disable.
@@ -96,6 +96,7 @@ while {deleteManagerPublic} do {
 			while {(((count allDeadMen) - _deadMenLimit) > 0)} do {
 				detach (allDeadMen select 0);
 				deleteVehicle (allDeadMen select 0);
+				systemChat "Deleting Dead Man";
 				sleep 0.5;
 			};
 		} else {
@@ -104,6 +105,7 @@ while {deleteManagerPublic} do {
 					if ([_x,_deadMenDist,(playableUnits + switchableUnits)] call _isHidden) then {
 						detach _x;
 						deleteVehicle _x;
+						systemChat "Deleting Dead Man";
 					};
 				} count allDeadMen;
 			};
@@ -116,6 +118,7 @@ while {deleteManagerPublic} do {
 		if ((count (allDead - allDeadMen)) > _deadVehiclesLimit) then {
 			while {(((count (allDead - allDeadMen)) - _deadVehiclesLimit) > 0)} do {
 				deleteVehicle ((allDead - allDeadMen) select 0);
+				systemChat "Deleting Destroyed Vehicle";
 				sleep 0.5;
 			};
 		} else {
@@ -123,6 +126,7 @@ while {deleteManagerPublic} do {
 				{
 					if ([_x,_deadVehicleDist,(playableUnits + switchableUnits)] call _isHidden) then {
 						deleteVehicle _x;
+						systemChat "Deleting Destroyed Vehicle";
 					};
 				} count (allDead - allDeadMen);
 			};
@@ -149,7 +153,7 @@ while {deleteManagerPublic} do {
 	};
 	
 	sleep 1;
-	systemChat "Weapon Holder Cleanup Start";
+	//systemChat "Weapon Holder Cleanup Start";
 	//================================= WEAPON HOLDERS
 	if (!(_weaponHolderLimit isEqualTo -1)) then {
 		if ((count (allMissionObjects "WeaponHolder")) > _weaponHolderLimit) then {
