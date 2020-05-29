@@ -104,7 +104,7 @@ atmKey = 0x14;
 lockUnlockKey = 0x15;
 giveMoneyKey = 0x23;
 giveKeyKey = 0x21;
-adminKey = 0xDB;
+adminKey =  0x4A;
 
 /* SAVING */
 savingMethod = "extDB";
