@@ -25,6 +25,10 @@ for "_i" from 1 to 48 do {
 				_veh = createVehicle [_vehicle, getPos _nearestRoad vectorAdd [random [-5, 0, 5], random [-5, 0, 5], 0], [], 0, "NONE"];
 				_veh setDir (random 360);
 				[_veh] remoteExec ["prv_fnc_addDamageToVehicle", 2, false];
+				clearItemCargoGlobal _veh; clearWeaponCargoGlobal _veh; clearMagazineCargoGlobal _veh; clearBackpackCargoGlobal _veh;
+				_veh setVariable ["locType", "vehicle"];
+				_veh setVariable ["lType", selectRandom ["food", "medical", "weapons_pistol"]];
+				[_veh, objNull] remoteExec ["prv_fnc_spawnLootIntoContainer", 2, false];
 			};
 
 			case (_rnd >= 60 && _rnd < 85) : {
@@ -32,6 +36,10 @@ for "_i" from 1 to 48 do {
 				_veh = createVehicle [_vehicle, getPos _nearestRoad vectorAdd [random [-5, 0, 5], random [-5, 0, 5], 0], [], 0, "NONE"];
 				_veh setDir (random 360);
 				[_veh] remoteExec ["prv_fnc_addDamageToVehicle", 2, false];
+				clearItemCargoGlobal _veh; clearWeaponCargoGlobal _veh; clearMagazineCargoGlobal _veh; clearBackpackCargoGlobal _veh;
+				_veh setVariable ["locType", "vehicle"];
+				_veh setVariable ["lType", selectRandom ["food", "medical", "weapons_pistol"]];
+				[_veh, objNull] remoteExec ["prv_fnc_spawnLootIntoContainer", 2, false];
 			};
 
 			case (_rnd >= 85 && _rnd < 100) : {
@@ -39,6 +47,10 @@ for "_i" from 1 to 48 do {
 				_veh = createVehicle [_vehicle, getPos _nearestRoad vectorAdd [random [-5, 0, 5], random [-5, 0, 5], 0], [], 0, "NONE"];
 				_veh setDir (random 360);
 				[_veh] remoteExec ["prv_fnc_addDamageToVehicle", 2, false];
+				clearItemCargoGlobal _veh; clearWeaponCargoGlobal _veh; clearMagazineCargoGlobal _veh; clearBackpackCargoGlobal _veh;
+				_veh setVariable ["locType", "vehicle"];
+				_veh setVariable ["lType", selectRandom ["food", "medical", "weapons_pistol"]];
+				[_veh, objNull] remoteExec ["prv_fnc_spawnLootIntoContainer", 2, false];
 			};
 		}
 	} else {
@@ -51,6 +63,10 @@ for "_i" from 1 to 48 do {
 				_veh setDir (random 360);
 				_veh setPosATL [(getpos _veh) select 0, (getpos _veh) select 1, 0];
 				[_veh] remoteExec ["prv_fnc_addDamageToVehicle", 2, false];
+				clearItemCargoGlobal _veh; clearWeaponCargoGlobal _veh; clearMagazineCargoGlobal _veh; clearBackpackCargoGlobal _veh;
+				_veh setVariable ["locType", "vehicle"];
+				_veh setVariable ["lType", selectRandom ["food", "medical", "weapons_pistol"]];
+				[_veh, objNull] remoteExec ["prv_fnc_spawnLootIntoContainer", 2, false];
 			};
 
 			case (_rnd >= 80 && _rnd < 95) : {
@@ -59,6 +75,10 @@ for "_i" from 1 to 48 do {
 				_veh setDir (random 360);
 				_veh setPosATL [(getpos _veh) select 0, (getpos _veh) select 1, 0];
 				[_veh] remoteExec ["prv_fnc_addDamageToVehicle", 2, false];
+				clearItemCargoGlobal _veh; clearWeaponCargoGlobal _veh; clearMagazineCargoGlobal _veh; clearBackpackCargoGlobal _veh;
+				_veh setVariable ["locType", "vehicle"];
+				_veh setVariable ["lType", selectRandom ["food", "medical", "weapons_pistol"]];
+				[_veh, objNull] remoteExec ["prv_fnc_spawnLootIntoContainer", 2, false];
 			};
 
 			case (_rnd >= 95 && _rnd < 100) : {
@@ -67,6 +87,10 @@ for "_i" from 1 to 48 do {
 				_veh setDir (random 360);
 				_veh setPosATL [(getpos _veh) select 0, (getpos _veh) select 1, 0];
 				[_veh] remoteExec ["prv_fnc_addDamageToVehicle", 2, false];
+				clearItemCargoGlobal _veh; clearWeaponCargoGlobal _veh; clearMagazineCargoGlobal _veh; clearBackpackCargoGlobal _veh;
+				_veh setVariable ["locType", "vehicle"];
+				_veh setVariable ["lType", selectRandom ["food", "medical", "weapons_pistol"]];
+				[_veh, objNull] remoteExec ["prv_fnc_spawnLootIntoContainer", 2, false];
 			};
 		}
 	}
