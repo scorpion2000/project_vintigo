@@ -32,4 +32,12 @@ class VintigoFunctions {
 		
 		class genericLogger {};
 	};
+
+	class PRVRespawn
+	{
+		file = "functions\respawn";
+		
+		class freshPlayerSpawn {};
+		class playerRespawn {};
+	};
 };
