@@ -34,17 +34,6 @@ commonCivVehicles = [
 	"C_Tracktor_01_F"
 ];
 
-bikes = [
-	"V12_APRILIAMXV450",
-	"V12_KTM",
-	"V12_KTM50CCB",
-	"V12_APRILIARSV4_BrosserG",
-	"V12_S1000RR2018_BrosserG",
-	"V12_HARLEXBOBBER_BrosserG",
-	"V12_MONKEY_BrosserG",
-	"V12_YZF_BrosserG"
-];
-
 rareCivVehicles = [
 	"ivory_r8", 
 	"ivory_r8_spyder",
