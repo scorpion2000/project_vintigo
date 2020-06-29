@@ -1,10 +1,11 @@
 for "_i" from 1 to 8 do {
+	_searchDist = 600;
 	_spawnLocRnd = selectRandom mapLocations;
 	spawnLoc = getPos _spawnLocRnd vectorAdd [random [-500, 0, 500], random [-500, 0, 500], 0];
-	_fixedSpawnLoc = spawnLoc;
-	_nearestRoad = spawnLoc;
+	_fixedSpawnLoc = [spawnLoc, 0, _searchDist, 0, 0, 0, 0] call BIS_fnc_findSafePos;
+	_nearestRoad = [spawnLoc, 200] call BIS_fnc_nearestRoad;
 	
-	if (surfaceIsWater spawnLoc) then {
+	if (surfaceIsWater _fixedSpawnLoc) then {
 		_searchDist = 600;
 		while {surfaceIsWater _fixedSpawnLoc} do {
 			_fixedSpawnLoc = [spawnLoc, 0, _searchDist, 0, 0, 0, 0] call BIS_fnc_findSafePos;
@@ -15,7 +16,7 @@ for "_i" from 1 to 8 do {
 		_nearestRoad = [spawnLoc, 200] call BIS_fnc_nearestRoad;
 	};
 
-	if (!isNull _nearestRoad) then {
+	if (!isNull "_nearestRoad") then {
 		_rnd = floor (random 100);
 
 		switch (true) do {
