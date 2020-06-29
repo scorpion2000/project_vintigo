@@ -36,7 +36,8 @@ while {roamingAIVehicleCount <= 16} do {
 	// _vehicle addEventHandler ["Killed", {roamingAIVehicleCount = roamingAIVehicleCount -1}];
 	
 	_roamingAI_1 = _group createUnit ["I_Survivor_F", (getPos _vehicle), [], 200, "NONE"];
-	_roamingAI_1 addEventHandler ["Killed", {roamingAIVehicleCount = roamingAIVehicleCount -1}];
+	_roamingAI_1 setVariable ["isAlive", true]; //A workaround we need bc the eventhandler can fire twice for some reason
+	_roamingAI_1 addEventHandler ["Killed", { if ((_this select 0) getVariable "isAlive") then {roamingAIVehicleCount = roamingAIVehicleCount -1}; (_this select 0) setVariable ["isAlive", false];}];
 	_roamingAI_1 setUnitLoadout (selectRandom b_loadoutArray);
 	
 	_roamingAI_2 = _group createUnit ["I_Survivor_F", (getPos _vehicle), [], 200, "NONE"];
