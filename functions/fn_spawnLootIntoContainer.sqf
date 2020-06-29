@@ -9,9 +9,16 @@ switch (_lootObject getVariable "lType") do {
 		_foodCModifier = 0;
 		switch (_lootObject getVariable "locType") do {
 			case "military": { _foodCModifier = 1 };
-			case "barren": { _foodCModifier = 1 };
-			case "village": { _foodCModifier = 2 };
-			case "city": { _foodCModifier = 3 };
+			case "village": { _foodCModifier = 1 };
+			case "city": { _foodCModifier = 2 };
+			case "shop": { _foodCModifier = 3 };
+			case "services": { _foodCModifier = 1 };
+			case "religious": { _foodCModifier = 1 };
+			case "industrial": { _foodCModifier = 1 };
+			case "utilities": { _foodCModifier = 1 };
+			case "seaport": { _foodCModifier = 0 };
+			case "constructionSites": { _foodCModifier = 1 };
+			case "airport": { _foodCModifier = 1 };
 			//case "crashEvent": { _midecalCModifier = 2 }; //Can't be in Crash Event crates
 			case "bbEvent": { _foodCModifier = 2 }; //Can't be in Crash Event crates
 			default { _foodCModifier = 1 };
@@ -40,9 +47,16 @@ switch (_lootObject getVariable "lType") do {
 		_midecalCModifier = 0;
 		switch (_lootObject getVariable "locType") do {
 			case "military": { _midecalCModifier = 3 };
-			case "barren": { _midecalCModifier = 0 };
 			case "village": { _midecalCModifier = 1 };
 			case "city": { _midecalCModifier = 2 };
+			case "shop": { _midecalCModifier = 1 };
+			case "services": { _midecalCModifier = 2 };
+			case "religious": { _midecalCModifier = 2 };
+			case "industrial": { _midecalCModifier = 1 };
+			case "utilities": { _midecalCModifier = 2 };
+			case "seaport": { _midecalCModifier = 1 };
+			case "constructionSites": { _midecalCModifier = 2 };
+			case "airport": { _midecalCModifier = 2 };
 			//case "crashEvent": { _midecalCModifier = 2 }; //Can't be in Crash Event crates
 			case "bbEvent": { _midecalCModifier = 2 };
 			default { _midecalCModifier = 1 };
@@ -78,9 +92,16 @@ switch (_lootObject getVariable "lType") do {
 		_pistolCModifier = 0;
 		switch (_lootObject getVariable "locType") do {
 			case "military": { _pistolCModifier = 30 };
-			case "barren": { _pistolCModifier = 0 };
 			case "village": { _pistolCModifier = 10 };
 			case "city": { _pistolCModifier = 20 };
+			case "shop": { _pistolCModifier = 1 };
+			case "services": { _pistolCModifier = 10 };
+			case "religious": { _pistolCModifier = 0 };
+			case "industrial": { _pistolCModifier = 20 };
+			case "utilities": { _pistolCModifier = 0 };
+			case "seaport": { _pistolCModifier = 5 };
+			case "constructionSites": { _pistolCModifier = 20 };
+			case "airport": { _pistolCModifier = 30 };
 			//case "crashEvent": { _pistolCModifier = 20 }; //Can't be in Crash Event crates
 			case "bbEvent": { _pistolCModifier = 20 };
 			default { _pistolCModifier = 0 };
@@ -123,9 +144,15 @@ switch (_lootObject getVariable "lType") do {
 		_rifleCModifier = 0;
 		switch (_lootObject getVariable "locType") do {
 			case "military": { _rifleCModifier = 25 };
-			case "barren": { _rifleCModifier = 0 };
 			case "village": { _rifleCModifier = 5 };
 			case "city": { _rifleCModifier = 15 };
+			case "shop": { _rifleCModifier = 10 };
+			case "services": { _rifleCModifier = 10 };
+			case "industrial": { _rifleCModifier = 10 };
+			case "utilities": { _rifleCModifier = 0 };
+			case "seaport": { _rifleCModifier = 5 };
+			case "constructionSites": { _rifleCModifier = 15 };
+			case "airport": { _rifleCModifier = 25 };
 			case "crashEvent": { _rifleCModifier = 50 }; //Guarantee a weapon for crashsite events (note, guarantees AT LEAST a common weapon)
 			case "bbEvent": { _rifleCModifier = 50 }; //Guarantee a weapon for crashsite events (note, guarantees AT LEAST a common weapon)
 			default { _rifleCModifier = 0 };
