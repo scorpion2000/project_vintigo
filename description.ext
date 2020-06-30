@@ -26,9 +26,9 @@ class Header
 class CfgFunctions 
 {
 	createShortcuts = 1;
+	#include "HG\Functions\HG_Functions.h"
 	#include "functions\cfgPrvFunctions.hpp"
 	//#include "scripts\funcs.hpp"
-	#include "HG\Functions\HG_Functions.h"
 };
 
 #include "HG\UI\HG_DialogsMaster.h"

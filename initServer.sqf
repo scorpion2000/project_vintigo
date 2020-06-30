@@ -1,6 +1,8 @@
 enableDynamicSimulationSystem true;
 "EmptyVehicle" setDynamicSimulationDistance 32;
 
+[] execVM "HG\Setup\fn_serverInitialization.sqf";
+
 mapLocations = nearestLocations [
 	[worldSize / 2, worldsize / 2, 0], 
 	[
@@ -131,5 +133,3 @@ rareHelis = [
 [] remoteExec ["prv_fnc_vehicleSpawner", 2, false];
 [] remoteExec ["prv_fnc_milVehicleSpawner", 2, false];
 [] remoteExec ["prv_fnc_spawnHelis", 2, false];
-
-[] execVM "HG\Setup\fn_serverInitialization.sqf";

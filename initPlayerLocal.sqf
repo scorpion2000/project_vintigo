@@ -1,5 +1,7 @@
 if(!hasInterface) exitWith {}; // If headless then exit
 
+[] execVM "HG\Setup\fn_clientInitialization.sqf";
+
 [] execVM "scripts\startLootSpawn.sqf";
 
 player addEventHandler ["Take", {
@@ -45,5 +47,3 @@ player addEventHandler [
 		[player] remoteExec ["prv_fnc_saveInventoryToDatabase", 2, false];
 	}
 ];
-
-[] execVM "HG\Setup\fn_clientInitialization.sqf";
