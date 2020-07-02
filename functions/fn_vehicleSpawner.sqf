@@ -23,7 +23,7 @@ for "_i" from 1 to 48 do {
 		switch (true) do {
 			case (_rnd < 70) : {
 				_vehicle = selectRandom commonCivVehicles;
-				_veh = createVehicle [_vehicle, getPos _nearestRoad vectorAdd [random [-5, 0, 5], random [-5, 0, 5], 0], [], 0, "NONE"];
+				_veh = createVehicle [_vehicle, getPos _nearestRoad vectorAdd [random [-5, 0, 5], random [-5, 0, 5], 0], [], 0, "CAN_COLLIDE"];
 				_veh setDir (random 360);
 				[_veh] remoteExec ["prv_fnc_addDamageToVehicle", 2, false];
 				clearItemCargoGlobal _veh; clearWeaponCargoGlobal _veh; clearMagazineCargoGlobal _veh; clearBackpackCargoGlobal _veh;
@@ -34,7 +34,7 @@ for "_i" from 1 to 48 do {
 
 			case (_rnd >= 70 && _rnd < 100) : {
 				_vehicle = selectRandom rareCivVehicles;
-				_veh = createVehicle [_vehicle, getPos _nearestRoad vectorAdd [random [-5, 0, 5], random [-5, 0, 5], 0], [], 0, "NONE"];
+				_veh = createVehicle [_vehicle, getPos _nearestRoad vectorAdd [random [-5, 0, 5], random [-5, 0, 5], 0], [], 0, "CAN_COLLIDE"];
 				_veh setDir (random 360);
 				[_veh] remoteExec ["prv_fnc_addDamageToVehicle", 2, false];
 				clearItemCargoGlobal _veh; clearWeaponCargoGlobal _veh; clearMagazineCargoGlobal _veh; clearBackpackCargoGlobal _veh;
@@ -49,7 +49,7 @@ for "_i" from 1 to 48 do {
 		switch (true) do {
 			case (_rnd < 85) : {
 				_vehicle = selectRandom commonCivVehicles;
-				_veh = createVehicle [_vehicle, _fixedSpawnLoc, [], 0, "NONE"];
+				_veh = createVehicle [_vehicle, _fixedSpawnLoc, [], 0, "CAN_COLLIDE"];
 				_veh setDir (random 360);
 				_veh setPosATL [(getpos _veh) select 0, (getpos _veh) select 1, 0];
 				[_veh] remoteExec ["prv_fnc_addDamageToVehicle", 2, false];
@@ -61,7 +61,7 @@ for "_i" from 1 to 48 do {
 
 			case (_rnd >= 85 && _rnd < 100) : {
 				_vehicle = selectRandom rareCivVehicles;
-				_veh = createVehicle [_vehicle, _fixedSpawnLoc, [], 0, "NONE"];
+				_veh = createVehicle [_vehicle, _fixedSpawnLoc, [], 0, "CAN_COLLIDE"];
 				_veh setDir (random 360);
 				_veh setPosATL [(getpos _veh) select 0, (getpos _veh) select 1, 0];
 				[_veh] remoteExec ["prv_fnc_addDamageToVehicle", 2, false];
