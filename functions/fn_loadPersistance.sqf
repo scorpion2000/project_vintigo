@@ -22,6 +22,8 @@ if (!isNil "_playerDatabaseID") then {
 		
 		_playerID publicVariableClient "KSS_hunger";
 		_playerID publicVariableClient "KSS_thirst";
+
+		[_player, _playerDatabaseID] remoteExec ["prv_fnc_loadAceStatus", 2, false];
 	} else {
 		[_player] remoteExec ["prv_fnc_freshPlayerSpawn", 2, false];
 	}
