@@ -2,9 +2,9 @@ params ["_playerUnit"];
 	
 private _query = format ["SELECT u_id FROM user WHERE u_UID='%1'", getPlayerUID _playerUnit];
 _idResult = [2,_query,false] call HG_fnc_asyncCall;
-_playerDatabaseID = _idResult#0;
 // systemChat str _playerDatabaseID;
-if !(isNil {_playerDatabaseID}) then {
+if (!isNil "_idResult") then {
+	_playerDatabaseID = _idResult#0;
 	_playerItems = [];
 	
 	_search = 7;
@@ -26,11 +26,11 @@ if !(isNil {_playerDatabaseID}) then {
 		_search = _search -1;
 	};
 
-	private _query = format ["SELECT equip_id FROM user_equipment WHERE equip_u_id='%1'", getPlayerUID _playerUnit];
+	private _query = format ["SELECT equip_id FROM user_equipment WHERE equip_u_id='%1'", _playerDatabaseID];
 	_equipmentIDResult = [2,_query,false] call HG_fnc_asyncCall;
-	_equipmentID = _equipmentIDResult#0;
 	//systemChat str _equipmentID;
-	if (isNil "_equipmentID") then {
+	if (!isNil "_equipmentIDResult") then {
+		_equipmentID = _equipmentIDResult#0;
 		private _query = format ["UPDATE user_equipment SET 
 		equip_primary = '%1', 
 		equip_secondary = '%2', 
@@ -40,14 +40,14 @@ if !(isNil {_playerDatabaseID}) then {
 		equip_vest = '%6', 
 		equip_backpack = '%7' 
 		WHERE equip_u_id=%8", _playerItems#0, _playerItems#1, _playerItems#2, _playerItems#3, _playerItems#4, _playerItems#5, _playerItems#6, _playerDatabaseID];
-		_updateSave = [1,_query,false] call HG_fnc_asyncCall;
+		[1,_query,false] call HG_fnc_asyncCall;
 		//systemChat str _updateSave;
 	} else {
 		private _query = format ["INSERT INTO user_equipment 
 		(equip_u_id, equip_primary, equip_secondary, equip_handgun, equip_uniform, equip_headgear, equip_vest, equip_backpack)
 		VALUES
-		('%1', '%2', '%3', '%4', '%5', %6,  '%7', '%8')", _playerDatabaseID, _playerItems#0, _playerItems#1, _playerItems#2, _playerItems#3, _playerItems#4, _playerItems#5, _playerItems#6];
-		_createSave = [1,_query,false] call HG_fnc_asyncCall;
+		('%1', '%2', '%3', '%4', '%5', '%6',  '%7', '%8')", _playerDatabaseID, _playerItems#0, _playerItems#1, _playerItems#2, _playerItems#3, _playerItems#4, _playerItems#5, _playerItems#6];
+		[1,_query,false] call HG_fnc_asyncCall;
 		//systemChat str _createSave;
 	};
 } else {
