@@ -155,7 +155,7 @@ switch (_lootObject getVariable "lType") do {
 			case "constructionSites": { _rifleCModifier = 10 };
 			case "airport": { _rifleCModifier = 20 };
 			case "crashEvent": { _rifleCModifier = 70 }; //Guarantee a weapon for crashsite events (note, guarantees AT LEAST a common weapon)
-			case "bbEvent": { _rifleCModifier = 70 && _rndMod = 70 }; //Guarantee a weapon for crashsite events (note, guarantees AT LEAST a common weapon)
+			case "bbEvent": { _rifleCModifier = 70; _rndMod = 70 }; //Guarantee a weapon for crashsite events (note, guarantees AT LEAST a common weapon)
 			default { _rifleCModifier = 0 };
 		};
 		_rnd = round (random (100 - _rndMod));
