@@ -142,24 +142,25 @@ switch (_lootObject getVariable "lType") do {
 	};
 	case "weapons_rifle" : {
 		_rifleCModifier = 0;
+		_rndMod = 0;
 		switch (_lootObject getVariable "locType") do {
 			case "military": { _rifleCModifier = 25 };
-			case "village": { _rifleCModifier = 5 };
-			case "city": { _rifleCModifier = 15 };
-			case "shop": { _rifleCModifier = 10 };
-			case "services": { _rifleCModifier = 10 };
+			case "village": { _rifleCModifier = 0 };
+			case "city": { _rifleCModifier = 10 };
+			case "shop": { _rifleCModifier = 5 };
+			case "services": { _rifleCModifier = 5 };
 			case "industrial": { _rifleCModifier = 10 };
 			case "utilities": { _rifleCModifier = 0 };
 			case "seaport": { _rifleCModifier = 5 };
-			case "constructionSites": { _rifleCModifier = 15 };
-			case "airport": { _rifleCModifier = 25 };
-			case "crashEvent": { _rifleCModifier = 50 }; //Guarantee a weapon for crashsite events (note, guarantees AT LEAST a common weapon)
-			case "bbEvent": { _rifleCModifier = 50 }; //Guarantee a weapon for crashsite events (note, guarantees AT LEAST a common weapon)
+			case "constructionSites": { _rifleCModifier = 10 };
+			case "airport": { _rifleCModifier = 20 };
+			case "crashEvent": { _rifleCModifier = 70 }; //Guarantee a weapon for crashsite events (note, guarantees AT LEAST a common weapon)
+			case "bbEvent": { _rifleCModifier = 70 && _rndMod = 70 }; //Guarantee a weapon for crashsite events (note, guarantees AT LEAST a common weapon)
 			default { _rifleCModifier = 0 };
 		};
-		_rnd = round (random 100);
+		_rnd = round (random (100 - _rndMod));
 		switch true do {
-			case (_rnd < (50 - _rifleCModifier)) : {
+			case (_rnd < (70 - _rifleCModifier)) : {
 				_selected = selectRandom commonPrimaryWeaponList;
 				_lootObject addWeaponCargoGlobal [_selected, 1];
 				_supportedMags = getArray (configFile >> "CfgWeapons" >> _selected >> "magazines");
@@ -169,7 +170,7 @@ switch (_lootObject getVariable "lType") do {
 				_lootObject addAction ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}, [], 1.5, true, false, "", "true", 5, false, "", ""];
 				[_lootObject, ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}], [], 1.5, true, false, "", "true", 5, false, "", ""] remoteExec ["addAction", 0, false];
 			};
-			case (_rnd >= (50 - _rifleCModifier) && _rnd < 75) : {
+			case (_rnd >= (70 - _rifleCModifier) && _rnd < (90 - _rifleCModifier)) : {
 				_selected = selectRandom uncommonPrimaryWeaponList;
 				_lootObject addWeaponCargoGlobal [_selected, 1];
 				_supportedMags = getArray (configFile >> "CfgWeapons" >> _selected >> "magazines");
@@ -179,7 +180,7 @@ switch (_lootObject getVariable "lType") do {
 				_lootObject addAction ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}, [], 1.5, true, false, "", "true", 5, false, "", ""];
 				[_lootObject, ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}], [], 1.5, true, false, "", "true", 5, false, "", ""] remoteExec ["addAction", 0, false];
 			};
-			case (_rnd >= 90 && _rnd < 98) : {
+			case (_rnd >= (90 - _rifleCModifier) && _rnd < (98 - _rifleCModifier)) : {
 				_selected = selectRandom rarePrimaryWeaponList;
 				_lootObject addWeaponCargoGlobal [_selected, 1];
 				_supportedMags = getArray (configFile >> "CfgWeapons" >> _selected >> "magazines");
@@ -189,7 +190,7 @@ switch (_lootObject getVariable "lType") do {
 				_lootObject addAction ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}, [], 1.5, true, false, "", "true", 5, false, "", ""];
 				[_lootObject, ["Show loot type", {hint format ["%1\nweapons_primary\n%2", typeOf (_this select 0), (_this select 0) getVariable "spawnedStuff"]}], [], 1.5, true, false, "", "true", 5, false, "", ""] remoteExec ["addAction", 0, false];
 			};
-			case (_rnd >= 98) : {
+			case (_rnd >= (98 - _rifleCModifier)) : {
 				_selected = selectRandom legendaryPrimaryWeaponList;
 				_lootObject addWeaponCargoGlobal [_selected, 1];
 				_supportedMags = getArray (configFile >> "CfgWeapons" >> _selected >> "magazines");
@@ -267,17 +268,23 @@ if (_rndSpawnMatchingMag < 5 && !isNull _playerUnit) then {
 _magCModifier = 0;
 switch (_lootObject getVariable "locType") do {
 	case "military": { _magCModifier = 3 };
-	case "barren": { _magCModifier = 0 };
 	case "village": { _magCModifier = 1 };
-	case "city": { _magCModifier = 2 };
-	case "crashEvent": { _magCModifier = 3 };
-	case "bbEvent": { _magCModifier = 3 };
+	case "city": { _magCModifier = 1 };
+	case "shop": { _magCModifier = 1 };
+	case "services": { _magCModifier = 1 };
+	case "industrial": { _magCModifier = 1 };
+	case "utilities": { _magCModifier = 1 };
+	case "seaport": { _magCModifier = 1 };
+	case "constructionSites": { _magCModifier = 1 };
+	case "airport": { _magCModifier = 2 };
+	case "crashEvent": { _magCModifier = 2 };
+	case "bbEvent": { _magCModifier = 2 };
 	default { _magCModifier = 1 };
 };
 
 //Random Mags
 _rndSpawnRandomMag = floor (random 100);
-if (_rndSpawnRandomMag < 15) then {
+if (_rndSpawnRandomMag < 10) then {
 	_rndWeapons = round (random 2 * _magCModifier) +1;
 	while {_rndWeapons > 0} do {
 		_rndWeapon = configName ( selectRandom allPrimaryWeapons );
@@ -292,17 +299,23 @@ if (_rndSpawnRandomMag < 15) then {
 _micsCModifier = 0;
 switch (_lootObject getVariable "locType") do {
 	case "military": { _micsCModifier = 1 };
-	case "barren": { _micsCModifier = 1 };
-	case "village": { _micsCModifier = 1 };
-	case "city": { _micsCModifier = 2 };
-	case "crashEvent": { _micsCModifier = 1 };
+	case "village": { _micsCModifier = 2 };
+	case "city": { _micsCModifier = 3 };
+	case "shop": { _micsCModifier = 3 };
+	case "services": { _micsCModifier = 3 };
+	case "industrial": { _micsCModifier = 3 };
+	case "utilities": { _micsCModifier = 4 };
+	case "seaport": { _micsCModifier = 1 };
+	case "constructionSites": { _micsCModifier = 4 };
+	case "airport": { _micsCModifier = 2 };
+	case "crashEvent": { _micsCModifier = 2 };
 	case "bbEvent": { _micsCModifier = 2 };
 	default { _micsCModifier = 1 };
 };
 
 _rndMisc = floor (random 100);
-if (_rndMisc < 20) then {
-	_rndCount = round (random 4 * _micsCModifier) +1;
+if (_rndMisc < 30) then {
+	_rndCount = round (random 1 * _micsCModifier) +1;
 	
 	while {_rndCount > 0} do {
 		_rnd = round (random 100);
@@ -327,17 +340,23 @@ if (_rndMisc < 20) then {
 
 _headgearCModifier = 0;
 switch (_lootObject getVariable "locType") do {
-	case "military": { _headgearCModifier = 2 };
-	case "barren": { _headgearCModifier = 0.5 };
+	case "military": { _headgearCModifier = 4 };
 	case "village": { _headgearCModifier = 1 };
 	case "city": { _headgearCModifier = 1 };
-	case "crashEvent": { _headgearCModifier = 3 };
+	case "shop": { _headgearCModifier = 2 };
+	case "services": { _headgearCModifier = 2 };
+	case "industrial": { _headgearCModifier = 2 };
+	case "utilities": { _headgearCModifier = 2 };
+	case "seaport": { _headgearCModifier = 1 };
+	case "constructionSites": { _headgearCModifier = 2 };
+	case "airport": { _headgearCModifier = 3 };
+	case "crashEvent": { _headgearCModifier = 2 };
 	case "bbEvent": { _headgearCModifier = 2 };
 	default { _headgearCModifier = 1 };
 };
 
 _rndHeadgear = floor (random 100);
-if (_rndHeadgear < (15 * _headgearCModifier)) then {
+if (_rndHeadgear < (12 * _headgearCModifier)) then {
 	_rnd = round (random 100);
 	if (_rnd < 95) then {
 		_selected = selectRandom commonHeadgears;
@@ -350,17 +369,23 @@ if (_rndHeadgear < (15 * _headgearCModifier)) then {
 
 _uniformCModifier = 0;
 switch (_lootObject getVariable "locType") do {
-	case "military": { _uniformCModifier = 1 };
-	case "barren": { _uniformCModifier = 0.5 };
+	case "military": { _uniformCModifier = 2 };
 	case "village": { _uniformCModifier = 1 };
-	case "city": { _uniformCModifier = 2 };
-	case "crashEvent": { _uniformCModifier = 0.5 };
-	case "bbEvent": { _uniformCModifier = 0.5 };
+	case "city": { _uniformCModifier = 3 };
+	case "shop": { _uniformCModifier = 3 };
+	case "services": { _uniformCModifier = 2 };
+	case "industrial": { _uniformCModifier = 1 };
+	case "utilities": { _uniformCModifier = 1 };
+	case "seaport": { _uniformCModifier = 1 };
+	case "constructionSites": { _uniformCModifier = 1 };
+	case "airport": { _uniformCModifier = 2 };
+	case "crashEvent": { _uniformCModifier = 2 };
+	case "bbEvent": { _uniformCModifier = 2 };
 	default { _uniformCModifier = 1 };
 };
 
 _rndUniform = floor (random 100);
-if (_rndUniform < (10 * _uniformCModifier)) then {
+if (_rndUniform < (7 * _uniformCModifier)) then {
 	_rnd = round (random 100);
 	if (_rnd < 85) then {
 		_selected = selectRandom commonUniforms;
@@ -373,17 +398,23 @@ if (_rndUniform < (10 * _uniformCModifier)) then {
 
 _vestCModifier = 0;
 switch (_lootObject getVariable "locType") do {
-	case "military": { _vestCModifier = 2 };
-	case "barren": { _vestCModifier = 0 };
-	case "village": { _vestCModifier = 0.5 };
-	case "city": { _vestCModifier = 1 };
-	case "crashEvent": { _vestCModifier = 3 };
-	case "bbEvent": { _vestCModifier = 3 };
+	case "military": { _vestCModifier = 5 };
+	case "village": { _vestCModifier = 1 };
+	case "city": { _vestCModifier = 2 };
+	case "shop": { _vestCModifier = 2.5 };
+	case "services": { _vestCModifier = 1 };
+	case "industrial": { _vestCModifier = 1.5 };
+	case "utilities": { _vestCModifier = 1 };
+	case "seaport": { _vestCModifier = 1 };
+	case "constructionSites": { _vestCModifier = 1.5 };
+	case "airport": { _vestCModifier = 2 };
+	case "crashEvent": { _vestCModifier = 4 };
+	case "bbEvent": { _vestCModifier = 4 };
 	default { _vestCModifier = 1 };
 };
 
 _rndVest = floor (random 100);
-if (_rndVest < (15 * _vestCModifier)) then {
+if (_rndVest < (6 * _vestCModifier)) then {
 	_rnd = round (random 100);
 	if (_rnd < 85) then {
 		_selected = selectRandom commonVests;
@@ -396,18 +427,24 @@ if (_rndVest < (15 * _vestCModifier)) then {
 
 _backpackCModifier = 0;
 switch (_lootObject getVariable "locType") do {
-	case "military": { _backpackCModifier = 2 };
-	case "barren": { _backpackCModifier = 0.5 };
+	case "military": { _backpackCModifier = 4 };
 	case "village": { _backpackCModifier = 1 };
 	case "city": { _backpackCModifier = 2 };
-	case "crashEvent": { _backpackCModifier = 3 };
-	case "bbEvent": { _backpackCModifier = 3 };
+	case "shop": { _backpackCModifier = 2.5 };
+	case "services": { _backpackCModifier = 2 };
+	case "industrial": { _backpackCModifier = 2 };
+	case "utilities": { _backpackCModifier = 1 };
+	case "seaport": { _backpackCModifier = 1 };
+	case "constructionSites": { _backpackCModifier = 2 };
+	case "airport": { _backpackCModifier = 2.5 };
+	case "crashEvent": { _backpackCModifier = 4 };
+	case "bbEvent": { _backpackCModifier = 4 };
 	default { _backpackCModifier = 1 };
 };
 
 
 _rndBackpack = floor (random 100);
-if (_rndBackpack < (15 * _backpackCModifier)) then {
+if (_rndBackpack < (9 * _backpackCModifier)) then {
 	_rnd = round (random 100);
 	if (_rnd < 85) then {
 		_selected = selectRandom commonBackpack;
@@ -420,12 +457,18 @@ if (_rndBackpack < (15 * _backpackCModifier)) then {
 
 _attachmentsCModifier = 0;
 switch (_lootObject getVariable "locType") do {
-	case "military": { _attachmentsCModifier = 3 };
-	case "barren": { _attachmentsCModifier = 0 };
+	case "military": { _attachmentsCModifier = 5 };
 	case "village": { _attachmentsCModifier = 1 };
-	case "city": { _attachmentsCModifier = 1.5 };
-	case "crashEvent": { _attachmentsCModifier = 2 };
-	case "bbEvent": { _attachmentsCModifier = 2 };
+	case "city": { _attachmentsCModifier = 1 };
+	case "shop": { _attachmentsCModifier = 1 };
+	case "services": { _attachmentsCModifier = 1 };
+	case "industrial": { _attachmentsCModifier = 1 };
+	case "utilities": { _attachmentsCModifier = 1 };
+	case "seaport": { _attachmentsCModifier = 1 };
+	case "constructionSites": { _attachmentsCModifier = 1 };
+	case "airport": { _attachmentsCModifier = 2 };
+	case "crashEvent": { _attachmentsCModifier = 4 };
+	case "bbEvent": { _attachmentsCModifier = 4 };
 	default { _attachmentsCModifier = 1 };
 };
 
