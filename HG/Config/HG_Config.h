@@ -108,7 +108,7 @@ adminKey =  0x4A;
 
 /* SAVING */
 savingMethod = "extDB";
-extDBDatabase = "HG";
+extDBDatabase = "prv";
 extDBProtocol = "SQL";
 extDBCustomFile = "custom.ini";
 

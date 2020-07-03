@@ -3,6 +3,20 @@ enableDynamicSimulationSystem true;
 
 [] execVM "HG\Setup\fn_serverInitialization.sqf";
 
+tpLocations = [
+	[19980.4,19306.2,4.76837e-007],
+	[1846.31,18569.8,0],
+	[4434.13,11475.1,0],
+	[1625.66,778.515,0],
+	[2102.85,4204.98,4.76837e-007],
+	[12264.3,1314.01,0],
+	[15445.1,6877.59,9.002],
+	[16840.8,12164.1,0],
+	[10333.7,12455.6,0],
+	[7481.09,7132.15,0],
+	[8439.55,18976.4,0]
+];
+
 mapLocations = nearestLocations [
 	[worldSize / 2, worldsize / 2, 0], 
 	[

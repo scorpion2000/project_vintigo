@@ -28,7 +28,7 @@ class CfgFunctions
 	createShortcuts = 1;
 	#include "HG\Functions\HG_Functions.h"
 	#include "functions\cfgPrvFunctions.hpp"
-	//#include "scripts\funcs.hpp"
+	#include "scripts\funcs.hpp"
 };
 
 #include "HG\UI\HG_DialogsMaster.h"
@@ -46,4 +46,5 @@ class CfgClient
 class CfgSounds
 {
     #include "HG\Sounds\HG_Sounds.h"
+    #include "sounds\sounds.hpp"
 };
