@@ -21,6 +21,9 @@ class VintigoFunctions {
 		class spawnHelis {};
 		class banditBossSpawn {};
 		class buyAmmunition {};
+		class saveAceStatus {};
+		class loadAceStatus {};
+		class createAnomalyLoop {};
 		/*
 		class spawnEvent {};
 		*/
