@@ -25,7 +25,7 @@ A: Yes, but not in the traditional way. Zombies are scarce. Their porpuse is to 
 
 Q: Which map is this mission made for?
 
-A: Any. They were mostly tested on BIS maps, but it should work on any map as long as locations are properly defined (meaning cities, military camps, villages and airports are properly named).
+A: Any. They were mostly tested on BIS maps, but it should work on any map as long as locations are properly defined
 
 
 Q: Does this mission require anything special to run?
