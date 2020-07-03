@@ -1,20 +1,20 @@
 for "_i" from 1 to 12 do {
 	_searchDist = 600;
 	_spawnLocRnd = selectRandom mapLocations;
-	spawnLoc = getPos _spawnLocRnd vectorAdd [random [-500, 0, 500], random [-500, 0, 500], 0];
-	_fixedSpawnLoc = [spawnLoc, 0, _searchDist, 0, 0, 0, 0] call BIS_fnc_findSafePos;
+	_spawnLoc = getPos _spawnLocRnd vectorAdd [random [-500, 0, 500], random [-500, 0, 500], 0];
+	_fixedSpawnLoc = [_spawnLoc, 0, _searchDist, 0, 0, 0, 0] call BIS_fnc_findSafePos;
 	_nearestRoad = spawnLoc;
 	
 	if (surfaceIsWater _fixedSpawnLoc) then {
 		_searchDist = 600;
 		while {surfaceIsWater _fixedSpawnLoc} do {
-			_fixedSpawnLoc = [spawnLoc, 0, _searchDist, 0, 0, 0, 0] call BIS_fnc_findSafePos;
+			_fixedSpawnLoc = [_spawnLoc, 0, _searchDist, 0, 0, 0, 0] call BIS_fnc_findSafePos;
 			_fixedSpawnLoc pushBack 5;	//BIS_fnc_findSafePos returns a 2D pos, most things expect 3D pos
 			_nearestRoad = [_fixedSpawnLoc, 200] call BIS_fnc_nearestRoad;
 			_searchDist = _searchDist + 200;
 		}
 	} else {
-		_nearestRoad = [spawnLoc, 200] call BIS_fnc_nearestRoad;
+		_nearestRoad = [_spawnLoc, 200] call BIS_fnc_nearestRoad;
 	};
 
 	if (!isNull _nearestRoad) then {
