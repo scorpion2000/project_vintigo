@@ -1,5 +1,3 @@
-systemChat "Spawning Bandit Boss";
-
 _spawnLoc = [nil, ["water", mapLocations]] call BIS_fnc_randomPos;
 _fixedSpawnLoc = [_spawnLoc, 0, 600, 0, 0, 0, 0] call BIS_fnc_findSafePos;
 _zAxisFix = createVehicle ["Land_Campfire_F", _fixedSpawnLoc, [], 0, "NONE"];
