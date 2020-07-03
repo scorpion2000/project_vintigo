@@ -56,8 +56,8 @@ _isHidden = compileFinal "
 
 deleteManagerPublic = TRUE;						// To terminate script via debug console
 _checkPlayerCount = FALSE;						// dynamic sleep. Set TRUE to have sleep automatically adjust based on # of players.
-_checkFrequencyDefault = 30;					// sleep default
-_checkFrequencyAccelerated = 30;				// sleep accelerated
+_checkFrequencyDefault = 120;					// sleep default
+_checkFrequencyAccelerated = 120;				// sleep accelerated
 _playerThreshold = 20;							// How many players before accelerated cycle kicks in?
 
 _deadMenLimit = -1;								// Bodies. Set -1 to disable.
@@ -69,7 +69,7 @@ _deadVehicleDist = 600;							// Distance (meters) from players that destroyed v
 _craterLimit = 10;								// Craters. Set -1 to disable.
 _craterDistCheck = FALSE;						// TRUE to delete any craters that are far from players.
 _craterDist = 1000;								// Distance (meters) from players that craters are not deleted if below max.
-_weaponHolderLimit = 64+((count allPlayers)*2);	// Weapon Holders. Set -1 to disable.
+_weaponHolderLimit = 128+((count allPlayers)*2);// Weapon Holders. Set -1 to disable.
 _weaponHolderDistCheck = TRUE;					// TRUE to delete any weapon holders that are far from players.
 _weaponHolderDist = 300;						// Distance (meters) from players that ground garbage is not deleted if below max.
 _minesLimit = -1;								// Land mines. Set -1 to disable.
@@ -202,7 +202,7 @@ while {deleteManagerPublic} do {
 				};
 				deleteVehicle ((allMissionObjects "GroundWeaponHolder_Scripted") select 0);
 				//systemChat "Weapon Holder deleted";
-				sleep 0.5;
+				sleep 0.1;
 			};
 		};
 	};
