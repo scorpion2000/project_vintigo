@@ -12,8 +12,6 @@ _buildingList append _houseList;
 
 _y = 0;
 
-systemChat "running";
-
 {
 		_searchingForPos = true;
 		_allBuildingPos = [_x] call BIS_fnc_buildingPositions;
