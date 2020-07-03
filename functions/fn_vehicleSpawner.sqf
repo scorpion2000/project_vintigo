@@ -3,7 +3,7 @@ for "_i" from 1 to 48 do {
 	_spawnLocRnd = selectRandom mapLocations;
 	_spawnLoc = getPos _spawnLocRnd vectorAdd [random [-500, 0, 500], random [-500, 0, 500], 0];
 	_fixedSpawnLoc = [_spawnLoc, 0, _searchDist, 0, 0, 0, 0] call BIS_fnc_findSafePos;
-	_nearestRoad = spawnLoc;
+	_nearestRoad = _spawnLoc;
 	
 	if (surfaceIsWater _fixedSpawnLoc) then {
 		_searchDist = 600;
