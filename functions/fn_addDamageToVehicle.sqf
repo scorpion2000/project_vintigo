@@ -1,5 +1,17 @@
 params ["_vehicle"];
 
+/* NEW SCRIPT */
+/* New script randomizes damage to all parts of a vehicle	*/
+
+_hitPoints = getAllHitPointsDamage _vehicle;
+_hitpoints = _hitpoints#0;
+
+{
+	_vehicle setHitPointDamage [_x, random 1];
+} forEach _hitpoints;
+
+/* OLD SCRIPT */
+/* Old script used to randomized a few fixed hitpoints
 _rndCount = floor (random 4);
 for "_i" from 1 to _rndCount do {
 	_rndHit = floor (random 7);
@@ -28,5 +40,6 @@ for "_i" from 1 to _rndCount do {
 		default { systemChat "Error While Damaging Vehicles" };
 	};
 };
+*/
 
 _vehicle setFuel (random 1);
