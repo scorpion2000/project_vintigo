@@ -46,3 +46,33 @@ A: It is currently in Alpha.
 Q: Sale prices are incredibly low in the VINTIGO base?
 
 A: VINTIGO does not need the money, and they are generally not interested in buying and selling stuff. Because of this, sale prices are low, and buy prices are really high.
+
+
+Q: The Phoenix Regime is underpowered compared to the Vintigos?!
+
+A: Yes. They scavanged what they could find in a post apocalyptic eastern europe, and they are only willing to depart with their average stuff. You might see some Phoenix Regime soldiers using better guns and vehicles compared to what they offer you at their shops. Do not forget, both the Vintigos and the Phoenix Regime consideres you as mercenaries, making good gear prices go really high or outright unavailable.
+
+
+Q: Are there planes in this gamemode?
+
+A: No, but we do have helicopters!
+
+
+Q: Can we fully join a side?
+
+A: No. While the gamemode calls you a mercenary, you can always call yourself loyal, and a soldier of your choosed side. It's all in the roleplay!
+
+
+Q: It's really hard to find good loot! Are there any special conditions for good loot to appear?
+
+A: No. Loot is meant to be generally scarce. Scavangers have looted and sold most things to either factions. Finding gear is easy, finding GOOD gear is difficult.
+
+
+Q: Do military vehicles spawn, or am I just unlucky?
+
+A: Military vehicles do spawn, but their numbers are much lower than your average vehicle. Not only that, but heavily armored or gunned vehicles are really rare.
+
+
+Q: Is there base building in this gamemode?
+
+A: Sort of. You'll be able to create a "hideout" where you can stash your loot, and get a virtual garage with it. While we value hoarding good gear for resupply purpuses, it is generally not the point of the gamemode to build a base.
